@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply font-sans antialiased text-gray-600 leading-relaxed;
+  }
+  h1, h2, h3, h4, h5 {
+    font-family: 'Plus Jakarta Sans', 'Poppins', sans-serif;
+    letter-spacing: -0.025em;
+  }
+  h1, h2 {
+    @apply font-extrabold;
+  }
+  h3, h4, h5 {
+    @apply font-bold;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .gradient-gold {
+    background: linear-gradient(135deg, #d4af37 0%, #e0c274 50%, #c69c50 100%);
+  }
+  .text-gradient-gold {
+    background: linear-gradient(135deg, #d4af37 0%, #e0c274 50%, #c69c50 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* Form inputs */
+@layer components {
+  .form-input {
+    @apply w-full px-4 py-3 rounded-xl bg-white border border-gray-200 text-gray-800 text-sm
+           focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20
+           transition-all duration-300 placeholder:text-gray-400;
+  }
+}
+
+/* Swiper custom styles */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #d4af37 !important;
+}
+
+.swiper-pagination-bullet {
+  background: #d4af37 !important;
+  opacity: 0.5 !important;
+}
+
+.swiper-pagination-bullet-active {
+  opacity: 1 !important;
+  width: 24px !important;
+  border-radius: 4px !important;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #7a1f3d;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #661b35;
+}
+
+/* Masonry columns */
+.masonry {
+  column-gap: 1.5rem;
+}
+@media (min-width: 768px) {
+  .masonry {
+    column-count: 3;
+  }
+}
+@media (max-width: 767px) {
+  .masonry {
+    column-count: 1;
+  }
+}
+@media (min-width: 640px) and (max-width: 767px) {
+  .masonry {
+    column-count: 2;
+  }
+}
+.masonry > * {
+  break-inside: avoid;
+  margin-bottom: 1.5rem;
+}
