@@ -20,18 +20,12 @@ export default function Navbar() {
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="flex items-center gap-3 shrink-0">
-          <div className="flex items-center justify-center w-11 h-11 rounded-full bg-burgundy-700 text-gold-400 font-heading text-xl font-extrabold tracking-tight">
-            Z
-          </div>
-          <div className="leading-tight">
-            <p className={`font-heading text-sm font-bold tracking-wider ${scrolled ? 'text-burgundy-700' : 'text-white'}`}>
-              ZAD ALMADINA
-            </p>
-            <p className={`text-[10px] tracking-[0.2em] uppercase ${scrolled ? 'text-gold-600' : 'text-gold-400'}`}>
-              Technical Services
-            </p>
-          </div>
+        <a href="#home" className="flex items-center shrink-0" aria-label="Zad Almadina Technical Services home">
+          <img
+            src="/logo.png"
+            alt="Zad Almadina Technical Services"
+            className="w-[190px] sm:w-[220px] h-auto object-contain"
+          />
         </a>
 
         {/* Desktop Nav */}
