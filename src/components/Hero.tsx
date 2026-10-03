@@ -72,7 +72,7 @@ export default function Hero() {
                 className="h-full w-full object-cover"
                 loading={i === 0 ? 'eager' : 'lazy'}
               />
-              <div className="absolute inset-0 bg-gradient-to-r from-burgundy-950/80 via-burgundy-950/50 to-black/40" />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/50 to-black/40" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             </div>
           </SwiperSlide>
@@ -80,29 +80,29 @@ export default function Hero() {
       </Swiper>
 
       {/* Content Overlay */}
-      <div className="relative z-10 flex items-center h-full max-w-7xl mx-auto px-6">
-        <div className="max-w-2xl">
+      <div className="relative z-50 flex items-center h-full max-w-7xl mx-auto px-6">
+        <div className="relative z-50 max-w-2xl">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-              <p className="text-gold-400 text-sm tracking-[0.3em] uppercase mb-6 font-semibold">
+              <p className="text-yellow-500 text-sm tracking-[0.3em] uppercase mb-6 font-semibold">
                 {slides[activeIndex].eyebrow}
               </p>
               <h1 className="text-white font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] mb-6 text-balance">
                 {slides[activeIndex].heading}
               </h1>
-              <p className="text-white/85 text-base md:text-lg leading-relaxed mb-9 max-w-xl font-light">
+              <p className="text-white/90 text-base md:text-lg leading-relaxed mb-9 max-w-xl font-light">
                 {slides[activeIndex].subheading}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to={slides[activeIndex].buttonTo}
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gold-500 text-burgundy-900 font-semibold tracking-wide hover:bg-gold-400 transition-all duration-300 hover:shadow-2xl hover:shadow-gold-500/30 hover:scale-[1.03]"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-yellow-500 text-black font-semibold tracking-wide hover:bg-yellow-400 transition-all duration-300 hover:shadow-2xl hover:shadow-yellow-500/30 hover:scale-[1.03]"
                 >
                   {slides[activeIndex].buttonText}
                   <ArrowRight size={18} />
@@ -111,7 +111,7 @@ export default function Hero() {
                   href={`https://wa.me/${CONTACT.phoneRaw}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-white/70 text-white font-semibold tracking-wide hover:bg-white hover:text-burgundy-700 transition-all duration-300"
+                  className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-white/70 text-white font-semibold tracking-wide hover:bg-white hover:text-black transition-all duration-300"
                 >
                   <MessageCircle size={18} />
                   Contact via WhatsApp
@@ -126,7 +126,7 @@ export default function Hero() {
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10 hidden md:block">
         <div className="w-6 h-10 border-2 border-white/40 rounded-full flex items-start justify-center p-1.5">
           <motion.div
-            className="w-1 h-2 bg-gold-400 rounded-full"
+            className="w-1 h-2 bg-yellow-500 rounded-full"
             animate={{ y: [0, 12, 0] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
           />
