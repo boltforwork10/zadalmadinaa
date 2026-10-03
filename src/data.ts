@@ -4,7 +4,7 @@ export const IMAGES = {
   hero1: 'https://images.pexels.com/photos/14915303/pexels-photo-14915303.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920',
   hero2: 'https://images.pexels.com/photos/6957083/pexels-photo-6957083.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920',
   hero3: 'https://images.pexels.com/photos/28350363/pexels-photo-28350363.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920',
-  whyChooseUs: 'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&h=900&w=1200',
+  whyChooseUs: '/images/photo_2026-10-03_22-56-55.jpg',
   pageHeaders: {
     about: 'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&h=600&w=1920',
     services: 'https://images.pexels.com/photos/5463575/pexels-photo-5463575.jpeg?auto=compress&cs=tinysrgb&h=600&w=1920',
