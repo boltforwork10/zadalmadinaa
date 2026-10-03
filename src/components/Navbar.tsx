@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { NAV_LINKS, CONTACT } from '@/data';
 
@@ -12,34 +13,40 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
+  // On sub-pages, always show the solid navbar (no transparent hero behind it)
+  const isHome = window.location.pathname === '/';
+  const solid = scrolled || !isHome;
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-5'
+        solid ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-5'
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <a href="#home" className="flex items-center shrink-0" aria-label="Zad Almadina Technical Services home">
+        <Link to="/" className="flex items-center shrink-0" aria-label="Zad Almadina Technical Services home">
           <img
             src="/logo.png"
             alt="Zad Almadina Technical Services"
             className="w-[190px] sm:w-[220px] h-auto object-contain"
           />
-        </a>
+        </Link>
 
         {/* Desktop Nav */}
         <ul className="hidden lg:flex items-center gap-7">
           {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className={`text-sm font-medium tracking-wide transition-colors duration-300 hover:text-gold-500 ${
-                  scrolled ? 'text-gray-700' : 'text-white/90'
-                }`}
+            <li key={link.to}>
+              <NavLink
+                to={link.to}
+                className={({ isActive }) =>
+                  `text-sm font-medium tracking-wide transition-colors duration-300 hover:text-gold-500 ${
+                    isActive ? 'text-gold-600' : solid ? 'text-gray-700' : 'text-white/90'
+                  }`
+                }
               >
                 {link.label}
-              </a>
+              </NavLink>
             </li>
           ))}
         </ul>
@@ -48,7 +55,7 @@ export default function Navbar() {
         <a
           href={`tel:${CONTACT.phoneRaw}`}
           className={`hidden lg:flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
-            scrolled
+            solid
               ? 'bg-burgundy-700 text-white hover:bg-burgundy-800'
               : 'bg-gold-500 text-burgundy-900 hover:bg-gold-400'
           }`}
@@ -60,7 +67,7 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className={`lg:hidden ${scrolled ? 'text-burgundy-700' : 'text-white'}`}
+          className={`lg:hidden ${solid ? 'text-burgundy-700' : 'text-white'}`}
           aria-label="Toggle menu"
         >
           {menuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -72,14 +79,18 @@ export default function Navbar() {
         <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-t border-gray-100">
           <ul className="flex flex-col py-4 px-6">
             {NAV_LINKS.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
+              <li key={link.to}>
+                <NavLink
+                  to={link.to}
                   onClick={() => setMenuOpen(false)}
-                  className="block py-3 text-gray-700 font-medium hover:text-burgundy-700 border-b border-gray-50"
+                  className={({ isActive }) =>
+                    `block py-3 font-medium border-b border-gray-50 ${
+                      isActive ? 'text-gold-600' : 'text-gray-700 hover:text-burgundy-700'
+                    }`
+                  }
                 >
                   {link.label}
-                </a>
+                </NavLink>
               </li>
             ))}
             <li className="pt-4">

@@ -1,4 +1,5 @@
 import { Phone, Mail, MapPin, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { NAV_LINKS, CONTACT } from '@/data';
 
 export default function Footer() {
@@ -32,14 +33,14 @@ export default function Footer() {
             <h3 className="font-heading text-lg font-bold text-gold-400 mb-6 tracking-tight">Quick Links</h3>
             <ul className="space-y-3">
               {NAV_LINKS.map((link) => (
-                <li key={link.href}>
-                  <a
-                    href={link.href}
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
                     className="flex items-center gap-2 text-white/60 hover:text-gold-400 transition-colors text-sm group"
                   >
                     <ChevronRight size={14} className="text-gold-600 group-hover:translate-x-1 transition-transform" />
                     {link.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>

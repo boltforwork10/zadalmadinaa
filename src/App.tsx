@@ -1,30 +1,24 @@
-import Navbar from '@/components/Navbar';
-import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Services from '@/components/Services';
-import WhyChooseUs from '@/components/WhyChooseUs';
-import Projects from '@/components/Projects';
-import HowWeWork from '@/components/HowWeWork';
-import CTABanner from '@/components/CTABanner';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+import { Routes, Route } from 'react-router-dom';
+import Layout from '@/components/Layout';
+import Home from '@/pages/Home';
+import About from '@/pages/About';
+import Services from '@/pages/Services';
+import Projects from '@/pages/Projects';
+import Contact from '@/pages/Contact';
+import NotFound from '@/pages/NotFound';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white overflow-x-hidden">
-      <Navbar />
-      <main>
-        <Hero />
-        <About />
-        <Services />
-        <WhyChooseUs />
-        <Projects />
-        <HowWeWork />
-        <CTABanner />
-        <Contact />
-      </main>
-      <Footer />
-    </div>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/services" element={<Services />} />
+        <Route path="/projects" element={<Projects />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
+      </Route>
+    </Routes>
   );
 }
 

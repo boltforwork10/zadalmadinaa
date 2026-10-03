@@ -1,8 +1,9 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { ArrowRight, MessageCircle } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import { IMAGES, CONTACT } from '@/data';
 
 import 'swiper/css';
@@ -78,13 +79,13 @@ export default function Hero() {
                 {subheading}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <a
-                  href="#contact"
+                <Link
+                  to="/contact"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gold-500 text-burgundy-900 font-semibold tracking-wide hover:bg-gold-400 transition-all duration-300 hover:shadow-2xl hover:shadow-gold-500/30 hover:scale-[1.03]"
                 >
                   Request a Quote
                   <ArrowRight size={18} />
-                </a>
+                </Link>
                 <a
                   href={`https://wa.me/${CONTACT.phoneRaw}`}
                   target="_blank"

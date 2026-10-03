@@ -5,6 +5,12 @@ export const IMAGES = {
   hero2: 'https://images.pexels.com/photos/6957083/pexels-photo-6957083.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920',
   hero3: 'https://images.pexels.com/photos/28350363/pexels-photo-28350363.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920',
   whyChooseUs: 'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&h=900&w=1200',
+  pageHeaders: {
+    about: 'https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&h=600&w=1920',
+    services: 'https://images.pexels.com/photos/5463575/pexels-photo-5463575.jpeg?auto=compress&cs=tinysrgb&h=600&w=1920',
+    projects: 'https://images.pexels.com/photos/11875898/pexels-photo-11875898.jpeg?auto=compress&cs=tinysrgb&h=600&w=1920',
+    contact: 'https://images.pexels.com/photos/5506033/pexels-photo-5506033.jpeg?auto=compress&cs=tinysrgb&h=600&w=1920',
+  },
   projects: {
     villaMaintenance: 'https://images.pexels.com/photos/16573669/pexels-photo-16573669.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     kitchen: 'https://images.pexels.com/photos/18285887/pexels-photo-18285887.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
@@ -14,17 +20,21 @@ export const IMAGES = {
     painting: 'https://images.pexels.com/photos/6764270/pexels-photo-6764270.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     falseCeiling: 'https://images.pexels.com/photos/4792521/pexels-photo-4792521.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
     carpentry: 'https://images.pexels.com/photos/1388944/floor-flooring-hand-man-1388944.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    villaPool: 'https://images.pexels.com/photos/10647324/pexels-photo-10647324.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    officeInterior: 'https://images.pexels.com/photos/13219418/pexels-photo-13219418.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    officeSpace: 'https://images.pexels.com/photos/32205998/pexels-photo-32205998.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    renovation: 'https://images.pexels.com/photos/36035072/pexels-photo-36035072.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    plaster: 'https://images.pexels.com/photos/6473966/pexels-photo-6473966.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
+    paintingWall: 'https://images.pexels.com/photos/8481700/pexels-photo-8481700.jpeg?auto=compress&cs=tinysrgb&h=650&w=940',
   },
 };
 
 export const NAV_LINKS = [
-  { label: 'Home', href: '#home' },
-  { label: 'About Us', href: '#about' },
-  { label: 'Services', href: '#services' },
-  { label: 'Why Us', href: '#why-us' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'How We Work', href: '#how-we-work' },
-  { label: 'Contact Us', href: '#contact' },
+  { label: 'Home', to: '/' },
+  { label: 'About Us', to: '/about' },
+  { label: 'Services', to: '/services' },
+  { label: 'Projects', to: '/projects' },
+  { label: 'Contact Us', to: '/contact' },
 ];
 
 export const SERVICES = [
@@ -52,6 +62,12 @@ export const WHY_CHOOSE_US = [
   { icon: 'BadgeCheck', title: 'Professional Service', desc: 'Delivered with professionalism, responsibility, and quality execution.' },
 ];
 
+export const CORE_VALUES = [
+  { icon: 'ShieldCheck', title: 'Quality Assurance', desc: 'We deliver the highest standards in every project, using premium materials and proven techniques to ensure lasting results.' },
+  { icon: 'Clock', title: 'Reliability', desc: 'We are committed to on-time project completion, respecting your schedule and deadlines without compromising on quality.' },
+  { icon: 'HeartHandshake', title: 'Integrity', desc: 'Transparent pricing and honest communication are at the core of everything we do — no hidden costs, no surprises.' },
+];
+
 export const HOW_WE_WORK = [
   { step: '01', title: 'Contact Us', desc: 'Reach out via phone, WhatsApp, or our online form to share your project needs.' },
   { step: '02', title: 'Inspection & Understanding', desc: 'We visit your site to inspect and fully understand your requirements.' },
@@ -60,15 +76,32 @@ export const HOW_WE_WORK = [
   { step: '05', title: 'Handover', desc: 'Final inspection and handover with quality assurance and your complete satisfaction.' },
 ];
 
+export const PROJECT_CATEGORIES = ['All', 'Villa Maintenance', 'Commercial', 'Finishing Works'] as const;
+
 export const PROJECTS = [
-  { title: 'Villa Maintenance', img: IMAGES.projects.villaMaintenance, category: 'Maintenance' },
-  { title: 'Kitchen Installation', img: IMAGES.projects.kitchen, category: 'Installation' },
-  { title: 'AC & Ventilation', img: IMAGES.projects.ac, category: 'HVAC' },
-  { title: 'Plumbing Works', img: IMAGES.projects.plumbing, category: 'Plumbing' },
-  { title: 'Flooring & Tiling', img: IMAGES.projects.flooring, category: 'Tiling' },
-  { title: 'Painting Works', img: IMAGES.projects.painting, category: 'Painting' },
-  { title: 'False Ceiling', img: IMAGES.projects.falseCeiling, category: 'Ceiling' },
-  { title: 'Carpentry & Wood Flooring', img: IMAGES.projects.carpentry, category: 'Carpentry' },
+  { title: 'Luxury Villa AC Installation', img: IMAGES.projects.ac, category: 'Villa Maintenance' },
+  { title: 'Villa Pool & Maintenance', img: IMAGES.projects.villaPool, category: 'Villa Maintenance' },
+  { title: 'Villa Plumbing Works', img: IMAGES.projects.plumbing, category: 'Villa Maintenance' },
+  { title: 'Villa Kitchen Installation', img: IMAGES.projects.kitchen, category: 'Villa Maintenance' },
+  { title: 'Modern Villa Interior', img: IMAGES.projects.villaMaintenance, category: 'Villa Maintenance' },
+  { title: 'Office Tiling & Flooring', img: IMAGES.projects.officeInterior, category: 'Commercial' },
+  { title: 'Corporate Office Space', img: IMAGES.projects.officeSpace, category: 'Commercial' },
+  { title: 'Commercial False Ceiling', img: IMAGES.projects.falseCeiling, category: 'Commercial' },
+  { title: 'Flooring & Tiling Project', img: IMAGES.projects.flooring, category: 'Finishing Works' },
+  { title: 'Interior Painting Works', img: IMAGES.projects.painting, category: 'Finishing Works' },
+  { title: 'Plaster & Wall Renovation', img: IMAGES.projects.plaster, category: 'Finishing Works' },
+  { title: 'Carpentry & Wood Flooring', img: IMAGES.projects.carpentry, category: 'Finishing Works' },
+  { title: 'Wall Painting Finishing', img: IMAGES.projects.paintingWall, category: 'Finishing Works' },
+  { title: 'Renovation & Finishing', img: IMAGES.projects.renovation, category: 'Finishing Works' },
+];
+
+export const TESTIMONIALS = [
+  { name: 'Ahmed Al Mansoori', role: 'Villa Owner, Palm Jumeirah', quote: 'Zad Almadina handled our entire villa AC installation and plumbing with incredible professionalism. The team was punctual, clean, and the quality of work exceeded our expectations.' },
+  { name: 'Sarah Williams', role: 'Property Manager, Downtown Dubai', quote: 'We have used Zad Almadina for multiple properties under our management. Their attention to detail and ability to handle everything from tiling to painting under one roof has been invaluable.' },
+  { name: 'Khalid Rahman', role: 'Business Owner, Business Bay', quote: 'They renovated our entire office space — false ceilings, flooring, and painting — all completed on time and within budget. Highly reliable team that I would recommend to anyone.' },
+  { name: 'Fatima Hassan', role: 'Homeowner, Arabian Ranches', quote: 'From the kitchen installation to the decorative finishes, every detail was handled with care. The team was respectful of our home and delivered beautiful results.' },
+  { name: 'James Cooper', role: 'Real Estate Developer, JBR', quote: 'Zad Almadina has been our go-to technical services partner for years. Their integrated approach saves us time and money, and the quality is consistently excellent.' },
+  { name: 'Mariam Al Zaabi', role: 'Hotel Manager, Dubai Marina', quote: 'Their swimming pool installation and maintenance service is top-notch. Professional, responsive, and always delivering to the highest standards. A truly dependable partner.' },
 ];
 
 export const SERVICE_TYPES = [
