@@ -1,13 +1,35 @@
-import { Wind, Droplets, Zap, LayoutGrid, PaintRoller, Square, CircleCheck as CheckCircle2 } from 'lucide-react';
+import {
+  Wind,
+  Droplets,
+  Zap,
+  ChefHat,
+  LayoutGrid,
+  PaintRoller,
+  Sparkles,
+  PenTool,
+  Image as ImageIcon,
+  Square,
+  Brush,
+  Waves,
+  Hammer,
+  CircleCheck as CheckCircle2,
+} from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 
 const iconMap: Record<string, LucideIcon> = {
   Wind,
   Droplets,
   Zap,
+  ChefHat,
   LayoutGrid,
   PaintRoller,
+  Sparkles,
+  PenTool,
+  Image: ImageIcon,
   Square,
+  Brush,
+  Waves,
+  Hammer,
 };
 
 export type Service = {
@@ -27,23 +49,23 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const Icon = iconMap[service.iconName] ?? Wind;
 
   return (
-    <div className="group bg-white rounded-2xl border border-gray-100 overflow-hidden hover:shadow-2xl hover:shadow-burgundy-700/10 hover:-translate-y-1.5 transition-all duration-500 h-full flex flex-col">
-      {/* Cover image */}
-      <div className="relative h-48 overflow-hidden">
+    <div className="group bg-white rounded-2xl border border-gray-100 hover:shadow-2xl hover:shadow-burgundy-700/10 hover:-translate-y-1.5 transition-all duration-500 h-full flex flex-col">
+      {/* Image wrapper — overflow-hidden only here so the icon can protrude */}
+      <div className="relative rounded-t-2xl overflow-hidden">
         <img
           src={service.imageUrl}
           alt={service.title}
           loading="lazy"
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          className="w-full h-56 object-cover bg-gray-200 group-hover:scale-105 transition-transform duration-700"
         />
-        {/* Dark rounded icon box overlapping bottom-left */}
-        <div className="absolute -bottom-6 left-6 w-14 h-14 rounded-xl bg-burgundy-800 text-gold-400 flex items-center justify-center shadow-lg ring-4 ring-white">
-          <Icon size={26} />
+        {/* Dark icon box overlapping bottom-left, white border for cutout effect */}
+        <div className="absolute -bottom-5 left-6 w-14 h-14 rounded-xl bg-burgundy-800 text-gold-400 flex items-center justify-center shadow-lg border-4 border-white">
+          <Icon size={24} />
         </div>
       </div>
 
-      {/* Body */}
-      <div className="p-6 pt-9 flex flex-col flex-1">
+      {/* Body — pt-8 clears the protruding icon */}
+      <div className="p-6 pt-8 flex flex-col flex-1">
         <h3 className="font-heading text-lg text-burgundy-800 font-bold mb-2 leading-snug tracking-tight">
           {service.title}
         </h3>
