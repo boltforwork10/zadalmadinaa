@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Star, Quote } from 'lucide-react';
@@ -9,8 +8,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 export default function Testimonials() {
-  const [activeIndex, setActiveIndex] = useState(0);
-
   return (
     <section id="testimonials" className="py-24 md:py-32 bg-burgundy-900 relative overflow-hidden">
       {/* Decorative elements */}
@@ -35,7 +32,6 @@ export default function Testimonials() {
             pagination={{ clickable: true }}
             loop
             className="pb-14"
-            onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
           >
             {TESTIMONIALS.map((testimonial, i) => (
               <SwiperSlide key={i}>
