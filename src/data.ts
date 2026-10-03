@@ -37,20 +37,94 @@ export const NAV_LINKS = [
   { label: 'Contact Us', to: '/contact' },
 ];
 
-export const SERVICES = [
-  { icon: 'Wind', title: 'Air Conditioning & Ventilation', desc: 'AC installation, ventilation, and air filtration systems for residential and commercial buildings.' },
-  { icon: 'Wrench', title: 'Electromechanical Equipment', desc: 'Installation and maintenance of electromechanical equipment with certified technicians.' },
-  { icon: 'Droplets', title: 'Plumbing & Sanitary', desc: 'Complete plumbing and sanitary installation services with quality materials and precision.' },
-  { icon: 'ChefHat', title: 'Kitchen Installation', desc: 'Modern kitchen installation from cabinetry to countertops with meticulous attention to detail.' },
-  { icon: 'Grid3x3', title: 'Floor & Wall Tiling', desc: 'Expert floor and wall tiling works for interiors and exteriors using premium materials.' },
-  { icon: 'PaintRoller', title: 'Painting Contracting', desc: 'Professional painting services for interiors and exteriors with flawless finishes.' },
-  { icon: 'Sparkles', title: 'Building Cleaning', desc: 'Comprehensive building cleaning services for post-construction and regular maintenance.' },
-  { icon: 'Feather', title: 'Engraving & Ornamentation', desc: 'Decorative engraving and ornamentation works that add elegance to any space.' },
-  { icon: 'Wallpaper', title: 'Wallpaper Fixing', desc: 'Precision wallpaper installation with seamless patterns and premium materials.' },
-  { icon: 'PanelsTopLeft', title: 'False Ceiling & Partitions', desc: 'False ceiling and light partition installation for modern, functional interior spaces.' },
-  { icon: 'Layers', title: 'Plaster Works', desc: 'Skilled plaster works for smooth, durable walls and ceilings prepared for finishing.' },
-  { icon: 'Waves', title: 'Swimming Pool Installation', desc: 'Swimming pool design, installation, and maintenance for residential and commercial properties.' },
-  { icon: 'Hammer', title: 'Carpentry & Wood Flooring', desc: 'Custom carpentry and wood flooring solutions crafted with precision and premium timber.' },
+export type Service = {
+  id: number;
+  title: string;
+  description: string;
+  imageUrl: string;
+  iconName: string;
+  features: string[];
+};
+
+export const SERVICES: Service[] = [
+  {
+    id: 1,
+    title: 'Air Conditioning & Ventilation',
+    description: 'Comprehensive HVAC solutions ensuring optimal indoor air quality and temperature control for residential and commercial spaces.',
+    imageUrl: 'https://images.pexels.com/photos/3680455/pexels-photo-3680455.jpeg?auto=compress&cs=tinysrgb&w=800',
+    iconName: 'Wind',
+    features: [
+      'AC installation & commissioning',
+      'Preventative maintenance contracts',
+      'Duct cleaning & sanitization',
+      'Troubleshooting & emergency repairs',
+    ],
+  },
+  {
+    id: 2,
+    title: 'Plumbing & Sanitary',
+    description: 'Expert plumbing installations, repairs, and sanitary fittings to ensure leak-free and efficient water management systems.',
+    imageUrl: 'https://images.pexels.com/photos/585419/pexels-photo-585419.jpeg?auto=compress&cs=tinysrgb&w=800',
+    iconName: 'Droplets',
+    features: [
+      'Water pipe installation & repair',
+      'Sanitary ware fitting',
+      'Drainage system maintenance',
+      'Water heater installation',
+    ],
+  },
+  {
+    id: 3,
+    title: 'Electromechanical Works',
+    description: 'Safe and compliant electrical and mechanical installations tailored to the specific power and operational requirements of your facility.',
+    imageUrl: 'https://images.pexels.com/photos/1089440/pexels-photo-1089440.jpeg?auto=compress&cs=tinysrgb&w=800',
+    iconName: 'Zap',
+    features: [
+      'Complete electrical wiring',
+      'Lighting system installation',
+      'Power distribution setup',
+      'Fault finding & safe repairs',
+    ],
+  },
+  {
+    id: 4,
+    title: 'Floor & Wall Tiling',
+    description: 'Precision tiling and flooring services using high-quality materials to enhance the aesthetics and durability of your spaces.',
+    imageUrl: 'https://images.pexels.com/photos/347141/pexels-photo-347141.jpeg?auto=compress&cs=tinysrgb&w=800',
+    iconName: 'LayoutGrid',
+    features: [
+      'Ceramic & porcelain tiling',
+      'Marble & granite installation',
+      'Bathroom & kitchen tiling',
+      'Floor levelling & grouting',
+    ],
+  },
+  {
+    id: 5,
+    title: 'Painting Contracting',
+    description: 'Premium interior and exterior painting services delivering flawless finishes and long-lasting protection for your property.',
+    imageUrl: 'https://images.pexels.com/photos/1892694/pexels-photo-1892694.jpeg?auto=compress&cs=tinysrgb&w=800',
+    iconName: 'PaintRoller',
+    features: [
+      'Interior & exterior painting',
+      'Surface preparation & priming',
+      'Decorative finishes',
+      'Weather-resistant coatings',
+    ],
+  },
+  {
+    id: 6,
+    title: 'False Ceiling & Partitions',
+    description: 'Modern false ceiling installations and light partitions designed to improve acoustics, lighting, and spatial organization.',
+    imageUrl: 'https://images.pexels.com/photos/2099035/pexels-photo-2099035.jpeg?auto=compress&cs=tinysrgb&w=800',
+    iconName: 'Square',
+    features: [
+      'Gypsum board ceilings',
+      'Grid ceiling installation',
+      'Glass & drywall partitions',
+      'Integrated lighting setups',
+    ],
+  },
 ];
 
 export const WHY_CHOOSE_US = [
@@ -106,18 +180,11 @@ export const TESTIMONIALS = [
 
 export const SERVICE_TYPES = [
   'Air Conditioning & Ventilation',
-  'Electromechanical Equipment',
   'Plumbing & Sanitary',
-  'Kitchen Installation',
+  'Electromechanical Works',
   'Floor & Wall Tiling',
   'Painting Contracting',
-  'Building Cleaning',
-  'Engraving & Ornamentation',
-  'Wallpaper Fixing',
   'False Ceiling & Partitions',
-  'Plaster Works',
-  'Swimming Pool Installation',
-  'Carpentry & Wood Flooring',
   'Other',
 ];
 
