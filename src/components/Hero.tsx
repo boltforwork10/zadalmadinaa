@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { ArrowRight, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { IMAGES, CONTACT } from '@/data';
+import { CONTACT } from '@/data';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
@@ -12,21 +12,42 @@ import 'swiper/css/effect-fade';
 
 const slides = [
   {
-    img: IMAGES.hero1,
-    heading: 'Integrated Technical Solutions for Your Home and Building',
+    img: 'https://images.pexels.com/photos/6285158/pexels-photo-6285158.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920',
+    eyebrow: 'About Zad Almadina',
+    heading: 'Discover Zad Almadina',
+    subheading:
+      'A trusted partner for comprehensive technical services and maintenance in Dubai, delivering quality, reliability, and attention to detail for every project.',
+    buttonText: 'Learn More About Us',
+    buttonTo: '/about',
   },
   {
-    img: IMAGES.hero2,
-    heading: 'Integrated Technical Solutions for Your Home and Building',
+    img: 'https://images.pexels.com/photos/5463581/pexels-photo-5463581.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920',
+    eyebrow: 'Our Services',
+    heading: 'Expert Technical Solutions',
+    subheading:
+      'From air conditioning and plumbing to electromechanical works and luxury finishes, we provide a full spectrum of services under one roof.',
+    buttonText: 'Explore Our Services',
+    buttonTo: '/services',
   },
   {
-    img: IMAGES.hero3,
-    heading: 'Integrated Technical Solutions for Your Home and Building',
+    img: 'https://images.pexels.com/photos/17576484/pexels-photo-17576484.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920',
+    eyebrow: 'Our Portfolio',
+    heading: 'Proven Track Record',
+    subheading:
+      'Explore our portfolio of successfully completed projects, showcasing our commitment to excellence across residential and commercial spaces.',
+    buttonText: 'View Our Work',
+    buttonTo: '/projects',
+  },
+  {
+    img: 'https://images.pexels.com/photos/4266932/pexels-photo-4266932.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920',
+    eyebrow: 'Contact Us',
+    heading: "Let's Build Together",
+    subheading:
+      'Ready to start your next project? Get in touch with our expert team today for a customized quote and professional consultation.',
+    buttonText: 'Contact Us Today',
+    buttonTo: '/contact',
   },
 ];
-
-const subheading =
-  'Zad Almadina Technical Services L.L.C — We offer a comprehensive range of installation, maintenance, and technical services for buildings and facilities. Quality execution, attention to detail, and solutions tailored to every project\'s needs.';
 
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -47,7 +68,7 @@ export default function Hero() {
             <div className="relative h-full w-full">
               <img
                 src={slide.img}
-                alt="Dubai architecture"
+                alt={slide.heading}
                 className="h-full w-full object-cover"
                 loading={i === 0 ? 'eager' : 'lazy'}
               />
@@ -70,20 +91,20 @@ export default function Hero() {
               transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
               <p className="text-gold-400 text-sm tracking-[0.3em] uppercase mb-6 font-semibold">
-                Zad Almadina Technical Services L.L.C
+                {slides[activeIndex].eyebrow}
               </p>
               <h1 className="text-white font-heading text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.15] mb-6 text-balance">
                 {slides[activeIndex].heading}
               </h1>
               <p className="text-white/85 text-base md:text-lg leading-relaxed mb-9 max-w-xl font-light">
-                {subheading}
+                {slides[activeIndex].subheading}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
-                  to="/contact"
+                  to={slides[activeIndex].buttonTo}
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gold-500 text-burgundy-900 font-semibold tracking-wide hover:bg-gold-400 transition-all duration-300 hover:shadow-2xl hover:shadow-gold-500/30 hover:scale-[1.03]"
                 >
-                  Request a Quote
+                  {slides[activeIndex].buttonText}
                   <ArrowRight size={18} />
                 </Link>
                 <a
