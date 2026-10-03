@@ -49,8 +49,8 @@ export default function ServiceCard({ service }: ServiceCardProps) {
   const Icon = iconMap[service.iconName] ?? Wind;
 
   return (
-    <div className="group bg-white rounded-2xl border border-gray-100 hover:shadow-2xl hover:shadow-burgundy-700/10 hover:-translate-y-1.5 transition-all duration-500 h-full flex flex-col">
-      {/* Image wrapper — overflow-hidden only here so the icon can protrude */}
+    <div className="group relative bg-white rounded-2xl border border-gray-100 hover:shadow-2xl hover:shadow-burgundy-700/10 hover:-translate-y-1.5 transition-all duration-500 h-full flex flex-col">
+      {/* Image wrapper — overflow-hidden clips only the image zoom */}
       <div className="relative rounded-t-2xl overflow-hidden">
         <img
           src={service.imageUrl}
@@ -58,10 +58,11 @@ export default function ServiceCard({ service }: ServiceCardProps) {
           loading="lazy"
           className="w-full h-56 object-cover bg-gray-200 group-hover:scale-105 transition-transform duration-700"
         />
-        {/* Dark icon box overlapping bottom-left, white border for cutout effect */}
-        <div className="absolute -bottom-5 left-6 w-14 h-14 rounded-xl bg-burgundy-800 text-gold-400 flex items-center justify-center shadow-lg border-4 border-white">
-          <Icon size={24} />
-        </div>
+      </div>
+
+      {/* Dark icon box overlapping the image/body boundary — outside overflow-hidden so it's never clipped */}
+      <div className="absolute top-[12.25rem] left-6 w-14 h-14 rounded-xl bg-burgundy-800 text-gold-400 flex items-center justify-center shadow-lg border-4 border-white z-10">
+        <Icon size={24} />
       </div>
 
       {/* Body — pt-8 clears the protruding icon */}
