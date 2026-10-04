@@ -39,7 +39,7 @@ const slides = [
     buttonTo: '/projects',
   },
   {
-    img: 'https://images.pexels.com/photos/4266932/pexels-photo-4266932.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920',
+    img: '/images/image copy 4.png',
     eyebrow: 'Contact Us',
     heading: "Let's Build Together",
     subheading:
