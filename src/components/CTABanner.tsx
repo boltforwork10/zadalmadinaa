@@ -19,11 +19,11 @@ export default function CTABanner() {
       <div className="relative max-w-5xl mx-auto px-6 text-center">
         <Reveal>
           <p className="text-gold-400 text-sm tracking-[0.3em] uppercase mb-4 font-semibold">{t('ctaBanner.eyebrow')}</p>
-          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-white font-extrabold tracking-tight mb-6 leading-[3] text-balance">
+          <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-white font-extrabold tracking-tight mb-6 leading-[2.2] text-balance">
             {t('ctaBanner.title')}
           </h2>
           <div className="w-20 h-1 gradient-gold mx-auto mb-8 rounded-full" />
-          <p className="text-white/80 text-lg leading-relaxed max-w-3xl mx-auto mb-10 font-light">
+          <p className="text-white/80 text-lg leading-loose max-w-3xl mx-auto mb-10 font-light">
             {t('ctaBanner.subtitle')}
           </p>
         </Reveal>
