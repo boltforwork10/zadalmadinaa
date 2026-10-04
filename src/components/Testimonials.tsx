@@ -1,3 +1,4 @@
+import { useMemo } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Star, Quote } from 'lucide-react';
@@ -15,8 +16,17 @@ type TestimonialItem = {
 
 export default function Testimonials() {
   const { t } = useTranslation();
-  const items = t('testimonials.items', { returnObjects: true }) as Record<string, TestimonialItem>;
-  const testimonials = Object.values(items);
+
+  const testimonials: TestimonialItem[] = useMemo(() => {
+    const raw = t('testimonials.items', { returnObjects: true });
+    if (raw && typeof raw === 'object' && !Array.isArray(raw)) {
+      return Object.values(raw as Record<string, TestimonialItem>);
+    }
+    if (Array.isArray(raw)) {
+      return raw as TestimonialItem[];
+    }
+    return [];
+  }, [t]);
 
   return (
     <section id="testimonials" className="py-24 md:py-32 bg-burgundy-900 relative overflow-hidden">
