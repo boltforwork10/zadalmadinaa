@@ -1,28 +1,13 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import { Menu, X, Phone } from 'lucide-react';
 import { NAV_LINKS, CONTACT } from '@/data';
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
 
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 40);
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  // On sub-pages, always show the solid navbar (no transparent hero behind it)
-  const isHome = window.location.pathname === '/';
-  const solid = scrolled || !isHome;
-
   return (
-    <header
-      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${
-        solid ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-5'
-      }`}
-    >
+    <header className="fixed top-0 left-0 w-full z-[100] bg-white shadow-sm border-b border-gray-100 py-3">
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center shrink-0" aria-label="Zad Almadina Technical Services home">
@@ -41,7 +26,7 @@ export default function Navbar() {
                 to={link.to}
                 className={({ isActive }) =>
                   `text-sm font-medium tracking-wide transition-colors duration-300 hover:text-gold-500 ${
-                    isActive ? 'text-gold-600' : solid ? 'text-gray-700' : 'text-white/90'
+                    isActive ? 'text-gold-600' : 'text-gray-700'
                   }`
                 }
               >
@@ -54,11 +39,7 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <a
           href={`tel:${CONTACT.phoneRaw}`}
-          className={`hidden lg:flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
-            solid
-              ? 'bg-burgundy-700 text-white hover:bg-burgundy-800'
-              : 'bg-gold-500 text-burgundy-900 hover:bg-gold-400'
-          }`}
+          className="hidden lg:flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 bg-burgundy-700 text-white hover:bg-burgundy-800"
         >
           <Phone size={16} />
           <span>Call Now</span>
@@ -67,7 +48,7 @@ export default function Navbar() {
         {/* Mobile Toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className={`lg:hidden ${solid ? 'text-burgundy-700' : 'text-white'}`}
+          className="lg:hidden text-burgundy-700"
           aria-label="Toggle menu"
         >
           {menuOpen ? <X size={26} /> : <Menu size={26} />}
