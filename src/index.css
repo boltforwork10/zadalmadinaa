@@ -19,6 +19,17 @@
   h3, h4, h5 {
     @apply font-bold;
   }
+  /* Arabic font override */
+  body.font-arabic {
+    font-family: 'Alexandria', sans-serif;
+  }
+  body.font-arabic h1,
+  body.font-arabic h2,
+  body.font-arabic h3,
+  body.font-arabic h4,
+  body.font-arabic h5 {
+    font-family: 'Alexandria', sans-serif;
+  }
 }
 
 @layer utilities {
