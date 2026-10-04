@@ -28,14 +28,14 @@ export default function CTABanner() {
         <Reveal delay={0.15}>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href={`tel:${CONTACT.phoneRaw}`}
+              href={`tel:${CONTACT.phone1Raw}`}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-gold-500 text-burgundy-900 font-semibold hover:bg-gold-400 transition-all duration-300 hover:shadow-xl hover:shadow-gold-500/30 hover:scale-[1.03]"
             >
               <Phone size={18} />
               Call Us
             </a>
             <a
-              href={`https://wa.me/${CONTACT.phoneRaw}`}
+              href={`https://wa.me/${CONTACT.whatsappRaw}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-gold-400 text-gold-400 font-semibold hover:bg-gold-400 hover:text-burgundy-900 transition-all duration-300"

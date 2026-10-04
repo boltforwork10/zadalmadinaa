@@ -222,8 +222,13 @@ export const SERVICE_TYPES = [
 ];
 
 export const CONTACT = {
-  phone: '+971 56 912 1295',
-  phoneRaw: '+971569121295',
-  email: 'ali.warda86@gmail.com',
-  location: 'Dubai, United Arab Emirates',
+  phone1: '+971 56 912 1295',
+  phone1Raw: '+971569121295',
+  phone2: '(04) 529 4664',
+  phone2Raw: '+97145294664',
+  whatsapp: '+971 58 892 1295',
+  whatsappRaw: '971588921295',
+  email: 'info@zad-almadina.com',
+  website: 'www.zad-almadina.com',
+  location: 'Office D-02, Almarzouqi Building 13-B, Al Goze First, Dubai, UAE',
 };

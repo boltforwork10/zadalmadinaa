@@ -1,4 +1,4 @@
-import { Phone, Mail, MapPin, ChevronRight } from 'lucide-react';
+import { Phone, Mail, MapPin, ChevronRight, Globe, MessageCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { NAV_LINKS, CONTACT } from '@/data';
 
@@ -45,15 +45,43 @@ export default function Footer() {
             <h3 className="font-heading text-lg font-bold text-gold-400 mb-6 tracking-tight">Contact Us</h3>
             <ul className="space-y-4">
               <li>
-                <a href={`tel:${CONTACT.phoneRaw}`} className="flex items-start gap-3 text-white/60 hover:text-gold-400 transition-colors text-sm">
+                <a href={`tel:${CONTACT.phone1Raw}`} className="flex items-start gap-3 text-white/60 hover:text-gold-400 transition-colors text-sm">
                   <Phone size={18} className="text-gold-600 shrink-0 mt-0.5" />
-                  {CONTACT.phone}
+                  {CONTACT.phone1}
+                </a>
+              </li>
+              <li>
+                <a href={`tel:${CONTACT.phone2Raw}`} className="flex items-start gap-3 text-white/60 hover:text-gold-400 transition-colors text-sm">
+                  <Phone size={18} className="text-gold-600 shrink-0 mt-0.5" />
+                  {CONTACT.phone2}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`https://wa.me/${CONTACT.whatsappRaw}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 text-white/60 hover:text-gold-400 transition-colors text-sm"
+                >
+                  <MessageCircle size={18} className="text-gold-600 shrink-0 mt-0.5" />
+                  {CONTACT.whatsapp}
                 </a>
               </li>
               <li>
                 <a href={`mailto:${CONTACT.email}`} className="flex items-start gap-3 text-white/60 hover:text-gold-400 transition-colors text-sm break-all">
                   <Mail size={18} className="text-gold-600 shrink-0 mt-0.5" />
                   {CONTACT.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`https://${CONTACT.website}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-start gap-3 text-white/60 hover:text-gold-400 transition-colors text-sm break-all"
+                >
+                  <Globe size={18} className="text-gold-600 shrink-0 mt-0.5" />
+                  {CONTACT.website}
                 </a>
               </li>
               <li className="flex items-start gap-3 text-white/60 text-sm">

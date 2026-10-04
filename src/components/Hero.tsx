@@ -108,7 +108,7 @@ export default function Hero() {
                   <ArrowRight size={18} />
                 </Link>
                 <a
-                  href={`https://wa.me/${CONTACT.phoneRaw}`}
+                  href={`https://wa.me/${CONTACT.whatsappRaw}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-white/70 text-white font-semibold tracking-wide hover:bg-white hover:text-black transition-all duration-300"

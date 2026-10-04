@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Send, CircleCheck as CheckCircle, User, Upload } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, CircleCheck as CheckCircle, User, Upload, Globe, MessageCircle } from 'lucide-react';
 import PageHeader from '@/components/PageHeader';
 import Reveal from '@/components/Reveal';
 import { CONTACT, SERVICE_TYPES, IMAGES } from '@/data';
@@ -37,14 +37,43 @@ export default function Contact() {
                 </p>
 
                 <div className="space-y-6">
-                  <a href={`tel:${CONTACT.phoneRaw}`} className="flex items-center gap-5 group">
+                  <a href={`tel:${CONTACT.phone1Raw}`} className="flex items-center gap-5 group">
                     <div className="w-14 h-14 rounded-xl bg-burgundy-50 text-burgundy-700 flex items-center justify-center group-hover:bg-burgundy-700 group-hover:text-gold-400 transition-all duration-300 shrink-0">
                       <Phone size={22} />
                     </div>
                     <div>
                       <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">Call Us</p>
                       <p className="text-burgundy-800 font-semibold text-lg group-hover:text-gold-600 transition-colors">
-                        {CONTACT.phone}
+                        {CONTACT.phone1}
+                      </p>
+                    </div>
+                  </a>
+
+                  <a href={`tel:${CONTACT.phone2Raw}`} className="flex items-center gap-5 group">
+                    <div className="w-14 h-14 rounded-xl bg-burgundy-50 text-burgundy-700 flex items-center justify-center group-hover:bg-burgundy-700 group-hover:text-gold-400 transition-all duration-300 shrink-0">
+                      <Phone size={22} />
+                    </div>
+                    <div>
+                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">Landline</p>
+                      <p className="text-burgundy-800 font-semibold text-lg group-hover:text-gold-600 transition-colors">
+                        {CONTACT.phone2}
+                      </p>
+                    </div>
+                  </a>
+
+                  <a
+                    href={`https://wa.me/${CONTACT.whatsappRaw}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-5 group"
+                  >
+                    <div className="w-14 h-14 rounded-xl bg-burgundy-50 text-burgundy-700 flex items-center justify-center group-hover:bg-burgundy-700 group-hover:text-gold-400 transition-all duration-300 shrink-0">
+                      <MessageCircle size={22} />
+                    </div>
+                    <div>
+                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">WhatsApp</p>
+                      <p className="text-burgundy-800 font-semibold text-lg group-hover:text-gold-600 transition-colors">
+                        {CONTACT.whatsapp}
                       </p>
                     </div>
                   </a>
@@ -57,6 +86,23 @@ export default function Contact() {
                       <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">Email Us</p>
                       <p className="text-burgundy-800 font-semibold text-lg group-hover:text-gold-600 transition-colors break-all">
                         {CONTACT.email}
+                      </p>
+                    </div>
+                  </a>
+
+                  <a
+                    href={`https://${CONTACT.website}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-5 group"
+                  >
+                    <div className="w-14 h-14 rounded-xl bg-burgundy-50 text-burgundy-700 flex items-center justify-center group-hover:bg-burgundy-700 group-hover:text-gold-400 transition-all duration-300 shrink-0">
+                      <Globe size={22} />
+                    </div>
+                    <div>
+                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">Website</p>
+                      <p className="text-burgundy-800 font-semibold text-lg group-hover:text-gold-600 transition-colors">
+                        {CONTACT.website}
                       </p>
                     </div>
                   </a>
@@ -74,7 +120,7 @@ export default function Contact() {
 
                 {/* WhatsApp CTA */}
                 <a
-                  href={`https://wa.me/${CONTACT.phoneRaw}`}
+                  href={`https://wa.me/${CONTACT.whatsappRaw}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="mt-10 inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-burgundy-700 text-white font-semibold hover:bg-burgundy-800 transition-all duration-300"
@@ -176,7 +222,7 @@ export default function Contact() {
             <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
               <iframe
                 title="Zad Almadina Location — Dubai"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d57829.69259804047!2d55.2309735!3d25.20485775!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f43496ad9c6f1%3A0xb06f51a939bb531!2sDubai%20-%20United%20Arab%20Emirates!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5783.064486784384!2d55.2257!3d25.1426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f275d2b1d4b7b%3A0x0!2sAl%20Quoz%20First%2C%20Dubai!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
                 width="100%"
                 height="420"
                 style={{ border: 0 }}
