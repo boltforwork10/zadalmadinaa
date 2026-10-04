@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { MessageCircle, X, Send, Sparkles } from 'lucide-react';
+import { MessageCircle, X, Send, Sparkles, RefreshCw } from 'lucide-react';
 import WhatsAppIcon from './WhatsAppIcon';
 import { CONTACT } from '@/data';
 
@@ -51,6 +51,24 @@ const QUICK_QUESTIONS: QuickQuestion[] = [
     answer:
       'Absolutely! We have a strong track record of successful residential and commercial projects across Dubai.',
     action: { label: 'View Portfolio', route: '/projects' },
+  },
+  {
+    id: 'hours',
+    question: 'What are your working hours?',
+    answer: 'We operate from Monday to Saturday, 8:00 AM to 6:00 PM. We also offer emergency support.',
+    action: { label: 'Call Now', route: 'tel:+971569121295' },
+  },
+  {
+    id: 'amc',
+    question: 'Do you offer annual maintenance contracts?',
+    answer: 'Yes, we provide comprehensive annual maintenance contracts (AMC) for residential and commercial properties to keep your facilities in top condition.',
+    action: { label: 'Contact Us', route: '/contact' },
+  },
+  {
+    id: 'certified',
+    question: 'Are your technicians certified?',
+    answer: 'Absolutely! Our team consists of highly trained and certified professionals with years of experience across the UAE.',
+    action: { label: 'Read About Us', route: '/about' },
   },
 ];
 
@@ -144,8 +162,19 @@ export default function Chatbot() {
   };
 
   const handleNavigate = (route: string) => {
+    if (route.startsWith('tel:') || route.startsWith('http')) {
+      window.open(route, '_blank', 'noopener,noreferrer');
+      return;
+    }
     setIsOpen(false);
     navigate(route);
+  };
+
+  const handleNewChat = () => {
+    setMessages([GREETING]);
+    setUsedQuestions(new Set());
+    setInputValue('');
+    setIsTyping(false);
   };
 
   const availableQuestions = QUICK_QUESTIONS.filter(
@@ -187,13 +216,19 @@ export default function Chatbot() {
         </AnimatePresence>
       </motion.button>
 
-      {/* Unread pulse ring when closed */}
+      {/* Pulse ripple ring when closed */}
       {!isOpen && (
         <motion.div
           className="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-gold-500 pointer-events-none"
-          initial={{ scale: 1, opacity: 0.4 }}
-          animate={{ scale: 1.8, opacity: 0 }}
-          transition={{ duration: 2, repeat: Infinity, ease: 'easeOut' }}
+          initial={{ scale: 1, opacity: 0.5 }}
+          animate={{ scale: [1, 1.9, 1.9], opacity: [0.5, 0, 0] }}
+          transition={{
+            duration: 2,
+            repeat: Infinity,
+            repeatType: 'loop',
+            ease: 'easeInOut',
+            times: [0, 0.75, 1],
+          }}
         />
       )}
 
@@ -221,6 +256,14 @@ export default function Chatbot() {
                   Online
                 </p>
               </div>
+              <button
+                onClick={handleNewChat}
+                className="text-white/70 hover:text-white transition-colors shrink-0"
+                aria-label="Start new chat"
+                title="New Chat"
+              >
+                <RefreshCw size={18} />
+              </button>
               <button
                 onClick={() => setIsOpen(false)}
                 className="text-white/70 hover:text-white transition-colors shrink-0"
@@ -353,3 +396,6 @@ export default function Chatbot() {
     </>
   );
 }
+
+
+export default Chatbot
