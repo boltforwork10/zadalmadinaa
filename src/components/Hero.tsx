@@ -12,7 +12,7 @@ import 'swiper/css/effect-fade';
 
 const slides = [
   {
-    img: 'https://images.pexels.com/photos/6285158/pexels-photo-6285158.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920',
+    img: '/images/image copy.png',
     eyebrow: 'About Zad Almadina',
     heading: 'Discover Zad Almadina',
     subheading:
