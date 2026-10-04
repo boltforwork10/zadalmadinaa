@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { NAV_LINKS, CONTACT } from '@/data';
 import WhatsAppIcon from './WhatsAppIcon';
+import LtrNumber from './LtrNumber';
 
 const NAV_KEYS = ['home', 'about', 'services', 'projects', 'contact'] as const;
 
@@ -52,13 +53,13 @@ export default function Footer() {
               <li>
                 <a href={`tel:${CONTACT.phone1Raw}`} className="flex items-start gap-3 text-white/60 hover:text-gold-400 transition-colors text-sm">
                   <Phone size={18} className="text-gold-600 shrink-0 mt-0.5" />
-                  {CONTACT.phone1}
+                  <LtrNumber>{CONTACT.phone1}</LtrNumber>
                 </a>
               </li>
               <li>
                 <a href={`tel:${CONTACT.phone2Raw}`} className="flex items-start gap-3 text-white/60 hover:text-gold-400 transition-colors text-sm">
                   <Phone size={18} className="text-gold-600 shrink-0 mt-0.5" />
-                  {CONTACT.phone2}
+                  <LtrNumber>{CONTACT.phone2}</LtrNumber>
                 </a>
               </li>
               <li>
@@ -69,7 +70,7 @@ export default function Footer() {
                   className="flex items-start gap-3 text-white/60 hover:text-gold-400 transition-colors text-sm"
                 >
                   <WhatsAppIcon size={18} className="text-gold-600 shrink-0 mt-0.5" />
-                  {CONTACT.whatsapp}
+                  <LtrNumber>{CONTACT.whatsapp}</LtrNumber>
                 </a>
               </li>
               <li>

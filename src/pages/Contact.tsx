@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import PageHeader from '@/components/PageHeader';
 import Reveal from '@/components/Reveal';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
+import LtrNumber from '@/components/LtrNumber';
 import { CONTACT, SERVICE_TYPES, IMAGES } from '@/data';
 
 export default function Contact() {
@@ -77,7 +78,7 @@ export default function Contact() {
                     <div>
                       <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">{t('contact.callUs')}</p>
                       <p className="text-burgundy-800 font-semibold text-lg group-hover:text-gold-600 transition-colors">
-                        {CONTACT.phone1}
+                        <LtrNumber>{CONTACT.phone1}</LtrNumber>
                       </p>
                     </div>
                   </a>
@@ -89,7 +90,7 @@ export default function Contact() {
                     <div>
                       <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">{t('contact.landline')}</p>
                       <p className="text-burgundy-800 font-semibold text-lg group-hover:text-gold-600 transition-colors">
-                        {CONTACT.phone2}
+                        <LtrNumber>{CONTACT.phone2}</LtrNumber>
                       </p>
                     </div>
                   </a>
@@ -106,7 +107,7 @@ export default function Contact() {
                     <div>
                       <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">{t('contact.whatsapp')}</p>
                       <p className="text-burgundy-800 font-semibold text-lg group-hover:text-gold-600 transition-colors">
-                        {CONTACT.whatsapp}
+                        <LtrNumber>{CONTACT.whatsapp}</LtrNumber>
                       </p>
                     </div>
                   </a>

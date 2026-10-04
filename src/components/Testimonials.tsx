@@ -7,9 +7,16 @@ import Reveal from './Reveal';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
+type TestimonialItem = {
+  name: string;
+  role: string;
+  quote: string;
+};
+
 export default function Testimonials() {
   const { t } = useTranslation();
-  const count = 6;
+  const items = t('testimonials.items', { returnObjects: true }) as Record<string, TestimonialItem>;
+  const testimonials = Object.values(items);
 
   return (
     <section id="testimonials" className="py-24 md:py-32 bg-burgundy-900 relative overflow-hidden">
@@ -36,7 +43,7 @@ export default function Testimonials() {
             loop
             className="pb-14"
           >
-            {Array.from({ length: count }).map((_, i) => (
+            {testimonials.map((item, i) => (
               <SwiperSlide key={i}>
                 <div className="text-center max-w-3xl mx-auto px-4">
                   <Quote size={48} className="text-gold-500/40 mx-auto mb-6" />
@@ -46,11 +53,11 @@ export default function Testimonials() {
                     ))}
                   </div>
                   <p className="text-white/90 text-lg md:text-xl leading-relaxed font-light mb-8 text-balance">
-                    "{t(`testimonials.items.${i}.quote`)}"
+                    "{item.quote}"
                   </p>
                   <div>
-                    <p className="text-gold-400 font-heading font-bold text-lg">{t(`testimonials.items.${i}.name`)}</p>
-                    <p className="text-white/50 text-sm mt-1">{t(`testimonials.items.${i}.role`)}</p>
+                    <p className="text-gold-400 font-heading font-bold text-lg">{item.name}</p>
+                    <p className="text-white/50 text-sm mt-1">{item.role}</p>
                   </div>
                 </div>
               </SwiperSlide>
