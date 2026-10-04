@@ -15,7 +15,8 @@ type TestimonialItem = {
 };
 
 export default function Testimonials() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const lang = i18n.language;
 
   const testimonials: TestimonialItem[] = useMemo(() => {
     const raw = t('testimonials.items', { returnObjects: true });
@@ -26,7 +27,7 @@ export default function Testimonials() {
       return raw as TestimonialItem[];
     }
     return [];
-  }, [t]);
+  }, [t, lang]);
 
   return (
     <section id="testimonials" className="py-24 md:py-32 bg-burgundy-900 relative overflow-hidden">
@@ -47,11 +48,13 @@ export default function Testimonials() {
 
         <Reveal delay={0.1}>
           <Swiper
+            key={`testimonials-${lang}`}
             modules={[Autoplay, Pagination]}
             autoplay={{ delay: 6000, disableOnInteraction: false }}
             pagination={{ clickable: true }}
-            loop
+            loop={testimonials.length > 1}
             className="pb-14"
+            rebuildOnUpdate
           >
             {testimonials.map((item, i) => (
               <SwiperSlide key={i}>
