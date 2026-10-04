@@ -14,7 +14,7 @@ const LANGUAGES: LanguageOption[] = [
 ];
 
 export default function LanguageSwitcher() {
-  const { i18n } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -41,7 +41,7 @@ export default function LanguageSwitcher() {
       <button
         onClick={() => setOpen(!open)}
         className="flex items-center gap-1.5 px-3 py-2 rounded-full text-sm font-medium text-gray-700 hover:text-gold-600 transition-colors duration-300"
-        aria-label="Change language"
+        aria-label={t('nav.changeLanguage')}
       >
         <Globe size={18} />
         <span className="hidden sm:inline">{current.nativeLabel}</span>
