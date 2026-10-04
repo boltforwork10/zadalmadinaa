@@ -43,8 +43,8 @@ export default function HowWeWork() {
           <div className="space-y-10">
             {HOW_WE_WORK.map((item, i) => (
               <Reveal key={item.step} delay={i * 0.08}>
-                <div className="relative">
-                  <div className="absolute -left-[33px] w-10 h-10 rounded-full bg-white border-4 border-gold-400 flex items-center justify-center shadow-md">
+                <div className="relative pl-10">
+                  <div className="absolute left-0 top-0 -translate-x-1/2 w-10 h-10 rounded-full bg-white border-4 border-gold-400 flex items-center justify-center shadow-md">
                     <span className="font-heading text-xs font-bold text-burgundy-700 tracking-tight">{item.step}</span>
                   </div>
                   <h3 className="font-heading text-lg text-burgundy-800 font-bold mb-2 tracking-tight">{item.title}</h3>
