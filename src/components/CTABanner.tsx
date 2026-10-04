@@ -1,6 +1,7 @@
-import { Phone, MessageCircle, Send } from 'lucide-react';
+import { Phone, Send } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import Reveal from './Reveal';
+import WhatsAppIcon from './WhatsAppIcon';
 import { CONTACT } from '@/data';
 
 export default function CTABanner() {
@@ -40,7 +41,7 @@ export default function CTABanner() {
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-gold-400 text-gold-400 font-semibold hover:bg-gold-400 hover:text-burgundy-900 transition-all duration-300"
             >
-              <MessageCircle size={18} />
+              <WhatsAppIcon size={18} />
               WhatsApp
             </a>
             <Link

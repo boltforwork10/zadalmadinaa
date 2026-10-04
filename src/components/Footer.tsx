@@ -1,6 +1,7 @@
-import { Phone, Mail, MapPin, ChevronRight, Globe, MessageCircle } from 'lucide-react';
+import { Phone, Mail, MapPin, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { NAV_LINKS, CONTACT } from '@/data';
+import WhatsAppIcon from './WhatsAppIcon';
 
 export default function Footer() {
   return (
@@ -63,7 +64,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="flex items-start gap-3 text-white/60 hover:text-gold-400 transition-colors text-sm"
                 >
-                  <MessageCircle size={18} className="text-gold-600 shrink-0 mt-0.5" />
+                  <WhatsAppIcon size={18} className="text-gold-600 shrink-0 mt-0.5" />
                   {CONTACT.whatsapp}
                 </a>
               </li>
@@ -71,17 +72,6 @@ export default function Footer() {
                 <a href={`mailto:${CONTACT.email}`} className="flex items-start gap-3 text-white/60 hover:text-gold-400 transition-colors text-sm break-all">
                   <Mail size={18} className="text-gold-600 shrink-0 mt-0.5" />
                   {CONTACT.email}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`https://${CONTACT.website}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start gap-3 text-white/60 hover:text-gold-400 transition-colors text-sm break-all"
-                >
-                  <Globe size={18} className="text-gold-600 shrink-0 mt-0.5" />
-                  {CONTACT.website}
                 </a>
               </li>
               <li className="flex items-start gap-3 text-white/60 text-sm">

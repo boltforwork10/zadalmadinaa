@@ -229,6 +229,5 @@ export const CONTACT = {
   whatsapp: '+971 58 892 1295',
   whatsappRaw: '971588921295',
   email: 'info@zad-almadina.com',
-  website: 'www.zad-almadina.com',
   location: 'Office D-02, Almarzouqi Building 13-B, Al Goze First, Dubai, UAE',
 };

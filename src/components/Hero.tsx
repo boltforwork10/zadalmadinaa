@@ -2,8 +2,9 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination, EffectFade } from 'swiper/modules';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import { ArrowRight, MessageCircle } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import WhatsAppIcon from './WhatsAppIcon';
 import { CONTACT } from '@/data';
 
 import 'swiper/css';
@@ -113,7 +114,7 @@ export default function Hero() {
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-white/70 text-white font-semibold tracking-wide hover:bg-white hover:text-black transition-all duration-300"
                 >
-                  <MessageCircle size={18} />
+                  <WhatsAppIcon size={18} />
                   Contact via WhatsApp
                 </a>
               </div>
