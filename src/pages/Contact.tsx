@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Phone, Mail, MapPin, Send, CircleCheck as CheckCircle, User, Upload } from 'lucide-react';
+import { Phone, Mail, MapPin, CircleCheck as CheckCircle, User } from 'lucide-react';
 import PageHeader from '@/components/PageHeader';
 import Reveal from '@/components/Reveal';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
@@ -7,9 +7,38 @@ import { CONTACT, SERVICE_TYPES, IMAGES } from '@/data';
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false);
+  const [form, setForm] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    service: '',
+    message: '',
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const lines = [
+      'Hello, I have a new inquiry from the website.',
+      `*Name:* ${form.name}`,
+      `*Email:* ${form.email}`,
+    ];
+
+    if (form.phone.trim()) {
+      lines.push(`*Phone:* ${form.phone}`);
+    }
+
+    lines.push(`*Subject/Service:* ${form.service}`);
+    lines.push(`*Message:* ${form.message}`);
+
+    const message = encodeURIComponent(lines.join('\n'));
+    window.open(`https://wa.me/${CONTACT.whatsappRaw}?text=${message}`, '_blank');
     setSubmitted(true);
     setTimeout(() => setSubmitted(false), 5000);
   };
@@ -139,15 +168,20 @@ export default function Contact() {
                       <FormField label="Name" icon={<User size={16} />}>
                         <input
                           type="text"
+                          name="name"
                           required
+                          value={form.name}
+                          onChange={handleChange}
                           placeholder="Your full name"
                           className="form-input"
                         />
                       </FormField>
-                      <FormField label="Phone Number" icon={<Phone size={16} />}>
+                      <FormField label="Phone Number (optional)" icon={<Phone size={16} />}>
                         <input
                           type="tel"
-                          required
+                          name="phone"
+                          value={form.phone}
+                          onChange={handleChange}
                           placeholder="+971 ..."
                           className="form-input"
                         />
@@ -157,14 +191,23 @@ export default function Contact() {
                     <FormField label="Email" icon={<Mail size={16} />}>
                       <input
                         type="email"
+                        name="email"
                         required
+                        value={form.email}
+                        onChange={handleChange}
                         placeholder="your@email.com"
                         className="form-input"
                       />
                     </FormField>
 
                     <FormField label="Service Type">
-                      <select required defaultValue="" className="form-input appearance-none cursor-pointer">
+                      <select
+                        name="service"
+                        required
+                        value={form.service}
+                        onChange={handleChange}
+                        className="form-input appearance-none cursor-pointer"
+                      >
                         <option value="" disabled>Select a service</option>
                         {SERVICE_TYPES.map((type) => (
                           <option key={type} value={type}>{type}</option>
@@ -174,26 +217,22 @@ export default function Contact() {
 
                     <FormField label="Project Details">
                       <textarea
+                        name="message"
                         required
                         rows={4}
+                        value={form.message}
+                        onChange={handleChange}
                         placeholder="Describe your project requirements..."
                         className="form-input resize-none"
                       />
                     </FormField>
 
-                    <FormField label="Attach File/Image" icon={<Upload size={16} />}>
-                      <input
-                        type="file"
-                        className="form-input file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-burgundy-700 file:text-white hover:file:bg-burgundy-800 file:cursor-pointer cursor-pointer"
-                      />
-                    </FormField>
-
                     <button
                       type="submit"
-                      className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-full gradient-gold text-burgundy-900 font-bold tracking-wide hover:shadow-xl hover:shadow-gold-500/30 transition-all duration-300 hover:scale-[1.01]"
+                      className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#25D366] text-white font-bold tracking-wide hover:bg-[#1da851] transition-all duration-300 hover:shadow-xl hover:shadow-green-500/30 hover:scale-[1.01]"
                     >
-                      <Send size={18} />
-                      Submit Quote Request
+                      <WhatsAppIcon size={20} />
+                      Send WhatsApp Message
                     </button>
                   </div>
                 )}
