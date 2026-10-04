@@ -396,5 +396,3 @@ export default function Chatbot() {
     </>
   );
 }
-
-export default Chatbot
