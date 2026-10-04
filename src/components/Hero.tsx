@@ -30,7 +30,7 @@ const slides = [
     buttonTo: '/services',
   },
   {
-    img: 'https://images.pexels.com/photos/17576484/pexels-photo-17576484.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920',
+    img: '/images/image copy 3.png',
     eyebrow: 'Our Portfolio',
     heading: 'Proven Track Record',
     subheading:
