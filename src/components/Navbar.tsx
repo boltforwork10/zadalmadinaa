@@ -19,7 +19,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${
         solid ? 'bg-white/95 backdrop-blur-md shadow-lg py-3' : 'bg-transparent py-5'
       }`}
     >
@@ -76,7 +76,7 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <div className="lg:hidden absolute top-full left-0 right-0 bg-white shadow-xl border-t border-gray-100">
+        <div className="lg:hidden absolute top-full left-0 right-0 z-[110] bg-white shadow-xl border-t border-gray-100">
           <ul className="flex flex-col py-4 px-6">
             {NAV_LINKS.map((link) => (
               <li key={link.to}>

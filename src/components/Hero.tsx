@@ -80,8 +80,8 @@ export default function Hero() {
       </Swiper>
 
       {/* Content Overlay */}
-      <div className="relative z-50 flex items-center h-full max-w-7xl mx-auto px-6">
-        <div className="relative z-50 max-w-2xl">
+      <div className="relative z-40 flex items-center h-full max-w-7xl mx-auto px-6 pointer-events-none">
+        <div className="relative z-40 max-w-2xl pointer-events-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeIndex}
