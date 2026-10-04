@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
             <Link to="/" className="inline-flex mb-6" aria-label="Zad Almadina Technical Services home">
               <img
-                src="/logo.png"
+                src="/footer.png"
                 alt="Zad Almadina Technical Services"
                 className="w-[220px] h-auto object-contain"
               />
