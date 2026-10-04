@@ -5,7 +5,10 @@
     "services": "Services",
     "projects": "Projects",
     "contact": "Contact Us",
-    "callNow": "Call Now"
+    "callNow": "Call Now",
+    "logoAlt": "Zad Almadina Technical Services",
+    "ariaHome": "Zad Almadina Technical Services home",
+    "toggleMenu": "Toggle menu"
   },
   "hero": {
     "slide1": {
@@ -291,6 +294,7 @@
     "newChat": "Start new chat",
     "closeChat": "Close chat",
     "openChat": "Open chat assistant",
+    "sendMessage": "Send message",
     "preferWhatsapp": "Prefer WhatsApp? Chat with us directly",
     "defaultReply": "I'd be happy to help! For specific inquiries, please contact us directly via WhatsApp or phone, and our team will assist you right away.",
     "contactUs": "Contact Us",

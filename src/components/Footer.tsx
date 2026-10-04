@@ -15,10 +15,10 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
-            <Link to="/" className="inline-flex mb-6" aria-label="Zad Almadina Technical Services home">
+            <Link to="/" className="inline-flex mb-6" aria-label={t('nav.ariaHome')}>
               <img
                 src="/footer.png"
-                alt="Zad Almadina Technical Services"
+                alt={t('nav.logoAlt')}
                 className="w-[220px] h-auto object-contain"
               />
             </Link>

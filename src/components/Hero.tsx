@@ -16,7 +16,7 @@ const SLIDE_CONFIG = [
   { img: '/images/image copy.png', buttonTo: '/about' },
   { img: '/images/image copy 2.png', buttonTo: '/services' },
   { img: '/images/image copy 3.png', buttonTo: '/projects' },
-  { img: '/images/image copy 4.png', buttonTo: '/contact' },
+  { img: '/images/contact.jpg', buttonTo: '/contact' },
 ];
 
 export default function Hero() {

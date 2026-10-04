@@ -15,10 +15,10 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 w-full z-[100] bg-white shadow-sm border-b border-gray-100 py-3">
       <nav className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="flex items-center shrink-0" aria-label="Zad Almadina Technical Services home">
+        <Link to="/" className="flex items-center shrink-0" aria-label={t('nav.ariaHome')}>
           <img
             src="/logo.png"
-            alt="Zad Almadina Technical Services"
+            alt={t('nav.logoAlt')}
             className="w-[190px] sm:w-[220px] h-auto object-contain"
           />
         </Link>
@@ -58,7 +58,7 @@ export default function Navbar() {
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="text-burgundy-700"
-            aria-label="Toggle menu"
+            aria-label={t('nav.toggleMenu')}
           >
             {menuOpen ? <X size={26} /> : <Menu size={26} />}
           </button>

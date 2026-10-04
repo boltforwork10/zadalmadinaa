@@ -353,7 +353,7 @@ export default function Chatbot() {
                   type="submit"
                   disabled={!inputValue.trim()}
                   className="w-10 h-10 rounded-full gradient-gold text-burgundy-900 flex items-center justify-center shrink-0 disabled:opacity-40 disabled:cursor-not-allowed hover:scale-105 transition-transform duration-200"
-                  aria-label="Send message"
+                  aria-label={t('chatbot.sendMessage')}
                 >
                   <Send size={17} />
                 </button>
