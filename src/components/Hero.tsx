@@ -21,7 +21,7 @@ const slides = [
     buttonTo: '/about',
   },
   {
-    img: 'https://images.pexels.com/photos/5463581/pexels-photo-5463581.jpeg?auto=compress&cs=tinysrgb&h=1080&w=1920',
+    img: '/images/image copy 2.png',
     eyebrow: 'Our Services',
     heading: 'Expert Technical Solutions',
     subheading:
