@@ -9,19 +9,13 @@ export default function Footer() {
         <div className="grid md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
-            <div className="flex items-center gap-3 mb-6">
-              <div className="flex items-center justify-center w-12 h-12 rounded-full bg-burgundy-700 text-gold-400 font-heading text-xl font-extrabold tracking-tight">
-                Z
-              </div>
-              <div className="leading-tight">
-                <p className="font-heading text-sm font-bold tracking-wider text-gold-400">
-                  ZAD ALMADINA
-                </p>
-                <p className="text-[10px] tracking-[0.2em] uppercase text-white/60">
-                  Technical Services L.L.C
-                </p>
-              </div>
-            </div>
+            <Link to="/" className="inline-flex mb-6" aria-label="Zad Almadina Technical Services home">
+              <img
+                src="/logo.png"
+                alt="Zad Almadina Technical Services"
+                className="w-[220px] h-auto object-contain"
+              />
+            </Link>
             <p className="text-white/60 leading-relaxed text-sm">
               Integrated Technical Services in Dubai. From installation and maintenance to finishing
               works — comprehensive solutions under one roof.
