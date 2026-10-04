@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { Phone, Mail, MapPin, CircleCheck as CheckCircle, User } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import PageHeader from '@/components/PageHeader';
 import Reveal from '@/components/Reveal';
 import WhatsAppIcon from '@/components/WhatsAppIcon';
 import { CONTACT, SERVICE_TYPES, IMAGES } from '@/data';
 
 export default function Contact() {
+  const { t } = useTranslation();
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({
     name: '',
@@ -25,17 +27,17 @@ export default function Contact() {
     e.preventDefault();
 
     const lines = [
-      'Hello, I have a new inquiry from the website.',
-      `*Name:* ${form.name}`,
-      `*Email:* ${form.email}`,
+      t('contact.whatsappMsg.intro'),
+      `*${t('contact.whatsappMsg.name')}:* ${form.name}`,
+      `*${t('contact.whatsappMsg.email')}:* ${form.email}`,
     ];
 
     if (form.phone.trim()) {
-      lines.push(`*Phone:* ${form.phone}`);
+      lines.push(`*${t('contact.whatsappMsg.phone')}:* ${form.phone}`);
     }
 
-    lines.push(`*Subject/Service:* ${form.service}`);
-    lines.push(`*Message:* ${form.message}`);
+    lines.push(`*${t('contact.whatsappMsg.subject')}:* ${form.service}`);
+    lines.push(`*${t('contact.whatsappMsg.message')}:* ${form.message}`);
 
     const message = encodeURIComponent(lines.join('\n'));
     window.open(`https://wa.me/${CONTACT.whatsappRaw}?text=${message}`, '_blank');
@@ -43,13 +45,15 @@ export default function Contact() {
     setTimeout(() => setSubmitted(false), 5000);
   };
 
+  const serviceTypes = t('services.serviceTypes', { returnObjects: true }) as string[];
+
   return (
     <>
       <PageHeader
-        title="Get in Touch"
-        subtitle="Reach out to us for a consultation or quotation. Our team is ready to assist with all your technical service needs."
+        title={t('contact.pageTitle')}
+        subtitle={t('contact.pageSubtitle')}
         image={IMAGES.pageHeaders.contact}
-        breadcrumb="Contact Us"
+        breadcrumb={t('contact.breadcrumb')}
       />
 
       <section className="py-24 md:py-32 bg-white">
@@ -59,11 +63,10 @@ export default function Contact() {
             <Reveal>
               <div className="h-full">
                 <h3 className="font-heading text-2xl text-burgundy-800 font-bold mb-6 tracking-tight">
-                  Let's Discuss Your Project
+                  {t('contact.discussTitle')}
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-10">
-                  Reach out to us for a consultation or quotation. Our team is ready to assist with all
-                  your technical service needs in Dubai.
+                  {t('contact.discussDesc')}
                 </p>
 
                 <div className="space-y-6">
@@ -72,7 +75,7 @@ export default function Contact() {
                       <Phone size={22} />
                     </div>
                     <div>
-                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">Call Us</p>
+                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">{t('contact.callUs')}</p>
                       <p className="text-burgundy-800 font-semibold text-lg group-hover:text-gold-600 transition-colors">
                         {CONTACT.phone1}
                       </p>
@@ -84,7 +87,7 @@ export default function Contact() {
                       <Phone size={22} />
                     </div>
                     <div>
-                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">Landline</p>
+                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">{t('contact.landline')}</p>
                       <p className="text-burgundy-800 font-semibold text-lg group-hover:text-gold-600 transition-colors">
                         {CONTACT.phone2}
                       </p>
@@ -101,7 +104,7 @@ export default function Contact() {
                       <WhatsAppIcon size={22} />
                     </div>
                     <div>
-                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">WhatsApp</p>
+                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">{t('contact.whatsapp')}</p>
                       <p className="text-burgundy-800 font-semibold text-lg group-hover:text-gold-600 transition-colors">
                         {CONTACT.whatsapp}
                       </p>
@@ -113,7 +116,7 @@ export default function Contact() {
                       <Mail size={22} />
                     </div>
                     <div>
-                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">Email Us</p>
+                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">{t('contact.emailUs')}</p>
                       <p className="text-burgundy-800 font-semibold text-lg group-hover:text-gold-600 transition-colors break-all">
                         {CONTACT.email}
                       </p>
@@ -125,7 +128,7 @@ export default function Contact() {
                       <MapPin size={22} />
                     </div>
                     <div>
-                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">Location</p>
+                      <p className="text-gray-400 text-xs uppercase tracking-wider mb-1">{t('contact.location')}</p>
                       <p className="text-burgundy-800 font-semibold text-lg">{CONTACT.location}</p>
                     </div>
                   </div>
@@ -139,7 +142,7 @@ export default function Contact() {
                   className="mt-10 inline-flex items-center gap-2 px-6 py-3.5 rounded-full bg-burgundy-700 text-white font-semibold hover:bg-burgundy-800 transition-all duration-300"
                 >
                   <WhatsAppIcon />
-                  Chat on WhatsApp
+                  {t('contact.chatWhatsapp')}
                 </a>
               </div>
             </Reveal>
@@ -156,51 +159,51 @@ export default function Contact() {
                       <CheckCircle size={40} />
                     </div>
                     <h3 className="font-heading text-2xl text-burgundy-800 font-bold mb-3 tracking-tight">
-                      Request Submitted!
+                      {t('contact.submitted')}
                     </h3>
                     <p className="text-gray-500">
-                      Thank you for reaching out. Our team will get back to you shortly.
+                      {t('contact.submittedDesc')}
                     </p>
                   </div>
                 ) : (
                   <div className="space-y-5">
                     <div className="grid sm:grid-cols-2 gap-5">
-                      <FormField label="Name" icon={<User size={16} />}>
+                      <FormField label={t('contact.form.name')} icon={<User size={16} />}>
                         <input
                           type="text"
                           name="name"
                           required
                           value={form.name}
                           onChange={handleChange}
-                          placeholder="Your full name"
+                          placeholder={t('contact.form.namePlaceholder')}
                           className="form-input"
                         />
                       </FormField>
-                      <FormField label="Phone Number (optional)" icon={<Phone size={16} />}>
+                      <FormField label={t('contact.form.phone')} icon={<Phone size={16} />}>
                         <input
                           type="tel"
                           name="phone"
                           value={form.phone}
                           onChange={handleChange}
-                          placeholder="+971 ..."
+                          placeholder={t('contact.form.phonePlaceholder')}
                           className="form-input"
                         />
                       </FormField>
                     </div>
 
-                    <FormField label="Email" icon={<Mail size={16} />}>
+                    <FormField label={t('contact.form.email')} icon={<Mail size={16} />}>
                       <input
                         type="email"
                         name="email"
                         required
                         value={form.email}
                         onChange={handleChange}
-                        placeholder="your@email.com"
+                        placeholder={t('contact.form.emailPlaceholder')}
                         className="form-input"
                       />
                     </FormField>
 
-                    <FormField label="Service Type">
+                    <FormField label={t('contact.form.serviceType')}>
                       <select
                         name="service"
                         required
@@ -208,21 +211,21 @@ export default function Contact() {
                         onChange={handleChange}
                         className="form-input appearance-none cursor-pointer"
                       >
-                        <option value="" disabled>Select a service</option>
-                        {SERVICE_TYPES.map((type) => (
+                        <option value="" disabled>{t('contact.form.selectService')}</option>
+                        {serviceTypes.map((type) => (
                           <option key={type} value={type}>{type}</option>
                         ))}
                       </select>
                     </FormField>
 
-                    <FormField label="Project Details">
+                    <FormField label={t('contact.form.projectDetails')}>
                       <textarea
                         name="message"
                         required
                         rows={4}
                         value={form.message}
                         onChange={handleChange}
-                        placeholder="Describe your project requirements..."
+                        placeholder={t('contact.form.messagePlaceholder')}
                         className="form-input resize-none"
                       />
                     </FormField>
@@ -232,7 +235,7 @@ export default function Contact() {
                       className="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-[#25D366] text-white font-bold tracking-wide hover:bg-[#1da851] transition-all duration-300 hover:shadow-xl hover:shadow-green-500/30 hover:scale-[1.01]"
                     >
                       <WhatsAppIcon size={20} />
-                      Send WhatsApp Message
+                      {t('contact.form.sendWhatsapp')}
                     </button>
                   </div>
                 )}
@@ -244,7 +247,7 @@ export default function Contact() {
           <Reveal delay={0.2} className="mt-16">
             <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-100">
               <iframe
-                title="Zad Almadina Location — Dubai"
+                title={t('contact.location')}
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5783.064486784384!2d55.2257!3d25.1426!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5f275d2b1d4b7b%3A0x0!2sAl%20Quoz%20First%2C%20Dubai!5e0!3m2!1sen!2sae!4v1700000000000!5m2!1sen!2sae"
                 width="100%"
                 height="420"

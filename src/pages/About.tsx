@@ -1,4 +1,5 @@
 import { Eye, Target } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import PageHeader from '@/components/PageHeader';
 import Reveal from '@/components/Reveal';
 import CoreValues from '@/components/CoreValues';
@@ -6,13 +7,15 @@ import CTABanner from '@/components/CTABanner';
 import { IMAGES } from '@/data';
 
 export default function About() {
+  const { t } = useTranslation();
+
   return (
     <>
       <PageHeader
-        title="About Zad Almadina"
-        subtitle="Integrated technical solutions for your home and building in Dubai."
+        title={t('about.pageTitle')}
+        subtitle={t('about.pageSubtitle')}
         image={IMAGES.pageHeaders.about}
-        breadcrumb="About Us"
+        breadcrumb={t('about.breadcrumb')}
       />
 
       {/* Company Overview */}
@@ -25,29 +28,26 @@ export default function About() {
                 <div className="relative overflow-hidden rounded-[1.75rem] shadow-2xl shadow-burgundy-900/15 bg-burgundy-50">
                   <img
                     src="/images/image.png"
-                    alt="Zad Almadina technical services professional on site"
+                    alt={t('about.imageAlt')}
                     className="w-full aspect-[4/5] object-cover object-top"
                     loading="eager"
                   />
                 </div>
                 <div className="absolute -bottom-5 -right-4 md:-right-6 rounded-xl bg-burgundy-800 px-5 py-3 text-white shadow-xl">
-                  <p className="text-gold-400 text-xs tracking-[0.18em] uppercase font-semibold">On site</p>
-                  <p className="font-heading text-sm font-bold mt-1">Professional expertise</p>
+                  <p className="text-gold-400 text-xs tracking-[0.18em] uppercase font-semibold">{t('about.onSite')}</p>
+                  <p className="font-heading text-sm font-bold mt-1">{t('about.professionalExpertise')}</p>
                 </div>
               </div>
             </Reveal>
 
             <Reveal delay={0.1}>
-              <p className="text-gold-600 text-sm tracking-[0.3em] uppercase mb-3 font-semibold">About Us</p>
+              <p className="text-gold-600 text-sm tracking-[0.3em] uppercase mb-3 font-semibold">{t('about.eyebrow')}</p>
               <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-burgundy-800 font-extrabold tracking-tight">
-                Zad Almadina Technical Services
+                {t('about.companyTitle')}
               </h2>
               <div className="w-20 h-1 gradient-gold mt-6 rounded-full" />
               <p className="text-gray-600 text-lg leading-relaxed font-light mt-8 max-w-2xl">
-                We are a specialized company in technical services, maintenance, installation, and finishing
-                works in Dubai, providing comprehensive solutions for various real estate and building needs.
-                We strive to provide multiple technical services under one roof, helping our clients accomplish
-                their work easily and efficiently.
+                {t('about.companyDesc')}
               </p>
             </Reveal>
           </div>
@@ -61,10 +61,9 @@ export default function About() {
                   <div className="w-16 h-16 rounded-xl bg-burgundy-700 text-gold-400 flex items-center justify-center mb-6 shadow-lg">
                     <Eye size={28} />
                   </div>
-                  <h3 className="font-heading text-2xl text-burgundy-800 font-bold mb-4 tracking-tight">Our Vision</h3>
+                  <h3 className="font-heading text-2xl text-burgundy-800 font-bold mb-4 tracking-tight">{t('about.visionTitle')}</h3>
                   <p className="text-gray-600 leading-relaxed text-lg">
-                    To be a reliable partner in technical services and maintenance by providing practical
-                    solutions and quality execution.
+                    {t('about.visionDesc')}
                   </p>
                 </div>
               </div>
@@ -77,10 +76,9 @@ export default function About() {
                   <div className="w-16 h-16 rounded-xl gradient-gold text-burgundy-900 flex items-center justify-center mb-6 shadow-lg">
                     <Target size={28} />
                   </div>
-                  <h3 className="font-heading text-2xl text-burgundy-800 font-bold mb-4 tracking-tight">Our Mission</h3>
+                  <h3 className="font-heading text-2xl text-burgundy-800 font-bold mb-4 tracking-tight">{t('about.missionTitle')}</h3>
                   <p className="text-gray-600 leading-relaxed text-lg">
-                    Providing integrated technical services with attention to detail, handling every project
-                    with professionalism and responsibility.
+                    {t('about.missionDesc')}
                   </p>
                 </div>
               </div>
