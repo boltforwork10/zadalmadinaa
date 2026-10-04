@@ -216,20 +216,15 @@ export default function Chatbot() {
         </AnimatePresence>
       </motion.button>
 
-      {/* Pulse ripple ring when closed */}
+      {/* Pulse ripple rings when closed — pure CSS for smooth infinite loop */}
       {!isOpen && (
-        <motion.div
-          className="fixed bottom-5 right-5 z-40 w-14 h-14 rounded-full bg-gold-500 pointer-events-none"
-          initial={{ scale: 1, opacity: 0.5 }}
-          animate={{ scale: [1, 1.9, 1.9], opacity: [0.5, 0, 0] }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            repeatType: 'loop',
-            ease: 'easeInOut',
-            times: [0, 0.75, 1],
-          }}
-        />
+        <div className="fixed bottom-5 right-5 z-40 w-14 h-14 pointer-events-none">
+          <span className="chatbot-ripple absolute inset-0 rounded-full bg-gold-500" />
+          <span
+            className="chatbot-ripple absolute inset-0 rounded-full bg-gold-500"
+            style={{ animationDelay: '1.3s' }}
+          />
+        </div>
       )}
 
       {/* Chat Window */}
