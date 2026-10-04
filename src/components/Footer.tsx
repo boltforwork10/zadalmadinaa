@@ -1,9 +1,14 @@
 import { Phone, Mail, MapPin, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { NAV_LINKS, CONTACT } from '@/data';
 import WhatsAppIcon from './WhatsAppIcon';
 
+const NAV_KEYS = ['home', 'about', 'services', 'projects', 'contact'] as const;
+
 export default function Footer() {
+  const { t } = useTranslation();
+
   return (
     <footer className="bg-burgundy-950 text-white">
       <div className="max-w-7xl mx-auto px-6 py-16">
@@ -18,23 +23,22 @@ export default function Footer() {
               />
             </Link>
             <p className="text-white/60 leading-relaxed text-sm">
-              Integrated Technical Services in Dubai. From installation and maintenance to finishing
-              works — comprehensive solutions under one roof.
+              {t('footer.description')}
             </p>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="font-heading text-lg font-bold text-gold-400 mb-6 tracking-tight">Quick Links</h3>
+            <h3 className="font-heading text-lg font-bold text-gold-400 mb-6 tracking-tight">{t('footer.quickLinks')}</h3>
             <ul className="space-y-3">
-              {NAV_LINKS.map((link) => (
+              {NAV_LINKS.map((link, i) => (
                 <li key={link.to}>
                   <Link
                     to={link.to}
                     className="flex items-center gap-2 text-white/60 hover:text-gold-400 transition-colors text-sm group"
                   >
                     <ChevronRight size={14} className="text-gold-600 group-hover:translate-x-1 transition-transform" />
-                    {link.label}
+                    {t(`nav.${NAV_KEYS[i]}`)}
                   </Link>
                 </li>
               ))}
@@ -43,7 +47,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-heading text-lg font-bold text-gold-400 mb-6 tracking-tight">Contact Us</h3>
+            <h3 className="font-heading text-lg font-bold text-gold-400 mb-6 tracking-tight">{t('footer.contactUs')}</h3>
             <ul className="space-y-4">
               <li>
                 <a href={`tel:${CONTACT.phone1Raw}`} className="flex items-start gap-3 text-white/60 hover:text-gold-400 transition-colors text-sm">
@@ -85,7 +89,7 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-white/10 mt-12 pt-8 text-center">
           <p className="text-white/40 text-sm">
-            © 2026 ZAD ALMADINA TECHNICAL SERVICES L.L.C. All Rights Reserved.
+            {t('footer.copyright')}
           </p>
         </div>
       </div>

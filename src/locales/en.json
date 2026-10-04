@@ -1,0 +1,335 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "services": "Services",
+    "projects": "Projects",
+    "contact": "Contact Us",
+    "callNow": "Call Now"
+  },
+  "hero": {
+    "slide1": {
+      "eyebrow": "About Zad Almadina",
+      "heading": "Discover Zad Almadina",
+      "subheading": "A trusted partner for comprehensive technical services and maintenance in Dubai, delivering quality, reliability, and attention to detail for every project.",
+      "buttonText": "Learn More About Us"
+    },
+    "slide2": {
+      "eyebrow": "Our Services",
+      "heading": "Expert Technical Solutions",
+      "subheading": "From air conditioning and plumbing to electromechanical works and luxury finishes, we provide a full spectrum of services under one roof.",
+      "buttonText": "Explore Our Services"
+    },
+    "slide3": {
+      "eyebrow": "Our Portfolio",
+      "heading": "Proven Track Record",
+      "subheading": "Explore our portfolio of successfully completed projects, showcasing our commitment to excellence across residential and commercial spaces.",
+      "buttonText": "View Our Work"
+    },
+    "slide4": {
+      "eyebrow": "Contact Us",
+      "heading": "Let's Build Together",
+      "subheading": "Ready to start your next project? Get in touch with our expert team today for a customized quote and professional consultation.",
+      "buttonText": "Contact Us Today"
+    },
+    "contactWhatsapp": "Contact via WhatsApp"
+  },
+  "footer": {
+    "description": "Integrated Technical Services in Dubai. From installation and maintenance to finishing works — comprehensive solutions under one roof.",
+    "quickLinks": "Quick Links",
+    "contactUs": "Contact Us",
+    "copyright": "© 2026 ZAD ALMADINA TECHNICAL SERVICES L.L.C. All Rights Reserved."
+  },
+  "featuredServices": {
+    "eyebrow": "What We Offer",
+    "title": "Featured Services",
+    "subtitle": "A selection of our most-requested technical services, delivered with precision and expertise.",
+    "viewAll": "View All Services"
+  },
+  "whyChooseUs": {
+    "eyebrow": "Why Choose Us",
+    "title": "Excellence in Every Detail",
+    "commitmentBadge": "Commitment to quality on every project",
+    "imageAlt": "Professional engineers at work",
+    "items": {
+      "0": { "title": "Integrated Solutions", "desc": "All technical services under one roof for seamless project execution." },
+      "1": { "title": "Project Requirements Expertise", "desc": "Deep understanding of diverse project requirements and specifications." },
+      "2": { "title": "Attention to Detail", "desc": "Every aspect of the work is handled with meticulous care and precision." },
+      "3": { "title": "Tailored Solutions", "desc": "Customized approaches designed for each project's unique needs." },
+      "4": { "title": "Diverse Services", "desc": "A wide range of technical services covering every building requirement." },
+      "5": { "title": "Professional Service", "desc": "Delivered with professionalism, responsibility, and quality execution." }
+    }
+  },
+  "howWeWork": {
+    "eyebrow": "Our Process",
+    "title": "How We Work",
+    "subtitle": "A streamlined process from first contact to final handover, ensuring clarity every step of the way.",
+    "steps": {
+      "0": { "title": "Contact Us", "desc": "Reach out via phone, WhatsApp, or our online form to share your project needs." },
+      "1": { "title": "Inspection & Understanding", "desc": "We visit your site to inspect and fully understand your requirements." },
+      "2": { "title": "Quotation", "desc": "Receive a detailed, transparent quotation tailored to your project scope." },
+      "3": { "title": "Execution", "desc": "Our skilled team executes the work with precision and professionalism." },
+      "4": { "title": "Handover", "desc": "Final inspection and handover with quality assurance and your complete satisfaction." }
+    }
+  },
+  "testimonials": {
+    "eyebrow": "Testimonials",
+    "title": "What Our Clients Say",
+    "items": {
+      "0": { "name": "Ahmed Al Mansoori", "role": "Villa Owner, Palm Jumeirah", "quote": "Zad Almadina handled our entire villa AC installation and plumbing with incredible professionalism. The team was punctual, clean, and the quality of work exceeded our expectations." },
+      "1": { "name": "Sarah Williams", "role": "Property Manager, Downtown Dubai", "quote": "We have used Zad Almadina for multiple properties under our management. Their attention to detail and ability to handle everything from tiling to painting under one roof has been invaluable." },
+      "2": { "name": "Khalid Rahman", "role": "Business Owner, Business Bay", "quote": "They renovated our entire office space — false ceilings, flooring, and painting — all completed on time and within budget. Highly reliable team that I would recommend to anyone." },
+      "3": { "name": "Fatima Hassan", "role": "Homeowner, Arabian Ranches", "quote": "From the kitchen installation to the decorative finishes, every detail was handled with care. The team was respectful of our home and delivered beautiful results." },
+      "4": { "name": "James Cooper", "role": "Real Estate Developer, JBR", "quote": "Zad Almadina has been our go-to technical services partner for years. Their integrated approach saves us time and money, and the quality is consistently excellent." },
+      "5": { "name": "Mariam Al Zaabi", "role": "Hotel Manager, Dubai Marina", "quote": "Their swimming pool installation and maintenance service is top-notch. Professional, responsive, and always delivering to the highest standards. A truly dependable partner." }
+    }
+  },
+  "ctaBanner": {
+    "eyebrow": "Get In Touch",
+    "title": "Have a project that needs integrated technical services?",
+    "subtitle": "From AC and plumbing to flooring, painting, ceilings, and carpentry — Zad Almadina provides a range of technical solutions in one place. Contact us today for a quote.",
+    "callUs": "Call Us",
+    "whatsapp": "WhatsApp",
+    "sendRequest": "Send Your Request"
+  },
+  "coreValues": {
+    "eyebrow": "Our Values",
+    "title": "Core Values",
+    "subtitle": "The principles that guide every project we undertake and every relationship we build.",
+    "values": {
+      "0": { "title": "Quality Assurance", "desc": "We deliver the highest standards in every project, using premium materials and proven techniques to ensure lasting results." },
+      "1": { "title": "Reliability", "desc": "We are committed to on-time project completion, respecting your schedule and deadlines without compromising on quality." },
+      "2": { "title": "Integrity", "desc": "Transparent pricing and honest communication are at the core of everything we do — no hidden costs, no surprises." }
+    }
+  },
+  "services": {
+    "items": {
+      "1": {
+        "title": "Air Conditioning & Ventilation",
+        "description": "Comprehensive HVAC solutions ensuring optimal indoor air quality and temperature control for residential and commercial spaces.",
+        "features": ["AC installation & commissioning", "Preventative maintenance", "Duct cleaning", "Emergency repairs"]
+      },
+      "2": {
+        "title": "Plumbing & Sanitary",
+        "description": "Expert plumbing installations, repairs, and sanitary fittings to ensure leak-free and efficient water management systems.",
+        "features": ["Water pipe installation", "Sanitary ware fitting", "Drainage maintenance", "Water heaters"]
+      },
+      "3": {
+        "title": "Electromechanical Works",
+        "description": "Safe and compliant electrical and mechanical installations tailored to the specific power and operational requirements of your facility.",
+        "features": ["Complete electrical wiring", "Lighting systems", "Power distribution", "Fault finding"]
+      },
+      "4": {
+        "title": "Kitchen Installation",
+        "description": "Professional kitchen fitting and assembly services, customized to match your space, requirements, and design preferences.",
+        "features": ["Cabinet installation", "Appliance fitting", "Countertop placement", "Custom woodwork"]
+      },
+      "5": {
+        "title": "Floor & Wall Tiling",
+        "description": "Precision tiling and flooring services using high-quality materials to enhance the aesthetics and durability of your spaces.",
+        "features": ["Ceramic & porcelain tiling", "Marble installation", "Bathroom tiling", "Grouting & levelling"]
+      },
+      "6": {
+        "title": "Painting Contracting",
+        "description": "Premium interior and exterior painting services delivering flawless finishes and long-lasting protection for your property.",
+        "features": ["Interior & exterior painting", "Surface preparation", "Decorative finishes", "Weather-resistant coats"]
+      },
+      "7": {
+        "title": "Building Cleaning Services",
+        "description": "Thorough and professional cleaning services for residential and commercial buildings, ensuring a pristine environment.",
+        "features": ["Deep cleaning", "Post-construction cleaning", "Facade cleaning", "Regular maintenance"]
+      },
+      "8": {
+        "title": "Engraving & Ornamentation",
+        "description": "Detailed engraving and ornamentation works that add a unique, artistic, and luxurious touch to your interiors.",
+        "features": ["Custom wall designs", "Decorative motifs", "Gypsum engraving", "Artistic finishes"]
+      },
+      "9": {
+        "title": "Wallpaper Fixing Works",
+        "description": "Professional wallpaper installation services ensuring smooth, bubble-free, and perfectly aligned finishes.",
+        "features": ["Surface smoothing", "Pattern alignment", "Vinyl & fabric wallpapers", "Removal & replacement"]
+      },
+      "10": {
+        "title": "False Ceiling & Partitions",
+        "description": "Modern false ceiling installations and light partitions designed to improve acoustics, lighting, and spatial organization.",
+        "features": ["Gypsum board ceilings", "Grid ceilings", "Glass partitions", "Drywall setup"]
+      },
+      "11": {
+        "title": "Plaster Works",
+        "description": "High-quality plastering services providing smooth and durable surfaces ready for final finishing and painting.",
+        "features": ["Wall plastering", "Surface repair", "Smoothing & finishing", "Exterior rendering"]
+      },
+      "12": {
+        "title": "Swimming Pool Installation",
+        "description": "Complete swimming pool installation and setup services, built to the highest safety and design standards.",
+        "features": ["Excavation & structural work", "Waterproofing", "Filtration systems", "Tile finishing"]
+      },
+      "13": {
+        "title": "Carpentry & Wood Flooring",
+        "description": "Expert carpentry and wood flooring services, delivering custom woodwork and elegant floor finishes.",
+        "features": ["Hardwood flooring", "Custom cabinetry", "Door & window fitting", "Wood repairs"]
+      }
+    },
+    "serviceTypes": [
+      "Air Conditioning & Ventilation",
+      "Plumbing & Sanitary",
+      "Electromechanical Works",
+      "Kitchen Installation",
+      "Floor & Wall Tiling",
+      "Painting Contracting",
+      "Building Cleaning Services",
+      "Engraving & Ornamentation",
+      "Wallpaper Fixing Works",
+      "False Ceiling & Partitions",
+      "Plaster Works",
+      "Swimming Pool Installation",
+      "Carpentry & Wood Flooring",
+      "Other"
+    ]
+  },
+  "projects": {
+    "categories": {
+      "All": "All",
+      "Villa Maintenance": "Villa Maintenance",
+      "Commercial": "Commercial",
+      "Finishing Works": "Finishing Works"
+    },
+    "items": {
+      "0": { "title": "Luxury Villa AC Installation" },
+      "1": { "title": "Villa Pool & Maintenance" },
+      "2": { "title": "Villa Plumbing Works" },
+      "3": { "title": "Villa Kitchen Installation" },
+      "4": { "title": "Modern Villa Interior" },
+      "5": { "title": "Office Tiling & Flooring" },
+      "6": { "title": "Corporate Office Space" },
+      "7": { "title": "Commercial False Ceiling" },
+      "8": { "title": "Flooring & Tiling Project" },
+      "9": { "title": "Interior Painting Works" },
+      "10": { "title": "Plaster & Wall Renovation" },
+      "11": { "title": "Carpentry & Wood Flooring" },
+      "12": { "title": "Wall Painting Finishing" },
+      "13": { "title": "Renovation & Finishing" }
+    }
+  },
+  "pageHeader": {
+    "home": "Home"
+  },
+  "about": {
+    "pageTitle": "About Zad Almadina",
+    "pageSubtitle": "Integrated technical solutions for your home and building in Dubai.",
+    "breadcrumb": "About Us",
+    "eyebrow": "About Us",
+    "companyTitle": "Zad Almadina Technical Services",
+    "companyDesc": "We are a specialized company in technical services, maintenance, installation, and finishing works in Dubai, providing comprehensive solutions for various real estate and building needs. We strive to provide multiple technical services under one roof, helping our clients accomplish their work easily and efficiently.",
+    "imageAlt": "Zad Almadina technical services professional on site",
+    "onSite": "On site",
+    "professionalExpertise": "Professional expertise",
+    "visionTitle": "Our Vision",
+    "visionDesc": "To be a reliable partner in technical services and maintenance by providing practical solutions and quality execution.",
+    "missionTitle": "Our Mission",
+    "missionDesc": "Providing integrated technical services with attention to detail, handling every project with professionalism and responsibility."
+  },
+  "servicesPage": {
+    "pageTitle": "Our Technical Services",
+    "pageSubtitle": "A comprehensive range of technical services delivered with precision and expertise.",
+    "breadcrumb": "Services",
+    "eyebrow": "What We Offer",
+    "title": "Complete Service Catalog",
+    "subtitle": "From installation and maintenance to finishing works — everything your building needs under one roof."
+  },
+  "projectsPage": {
+    "pageTitle": "Our Portfolio",
+    "pageSubtitle": "A showcase of our technical expertise across residential and commercial properties in Dubai.",
+    "breadcrumb": "Projects"
+  },
+  "contact": {
+    "pageTitle": "Get in Touch",
+    "pageSubtitle": "Reach out to us for a consultation or quotation. Our team is ready to assist with all your technical service needs.",
+    "breadcrumb": "Contact Us",
+    "discussTitle": "Let's Discuss Your Project",
+    "discussDesc": "Reach out to us for a consultation or quotation. Our team is ready to assist with all your technical service needs in Dubai.",
+    "callUs": "Call Us",
+    "landline": "Landline",
+    "whatsapp": "WhatsApp",
+    "emailUs": "Email Us",
+    "location": "Location",
+    "chatWhatsapp": "Chat on WhatsApp",
+    "submitted": "Request Submitted!",
+    "submittedDesc": "Thank you for reaching out. Our team will get back to you shortly.",
+    "form": {
+      "name": "Name",
+      "namePlaceholder": "Your full name",
+      "phone": "Phone Number (optional)",
+      "phonePlaceholder": "+971 ...",
+      "email": "Email",
+      "emailPlaceholder": "your@email.com",
+      "serviceType": "Service Type",
+      "selectService": "Select a service",
+      "projectDetails": "Project Details",
+      "messagePlaceholder": "Describe your project requirements...",
+      "sendWhatsapp": "Send WhatsApp Message"
+    },
+    "whatsappMsg": {
+      "intro": "Hello, I have a new inquiry from the website.",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "subject": "Subject/Service",
+      "message": "Message"
+    }
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "desc": "The page you are looking for doesn't exist or has been moved.",
+    "backHome": "Back to Home"
+  },
+  "chatbot": {
+    "title": "Zad Assistant",
+    "online": "Online",
+    "greeting": "Welcome to Zad Almadina Technical Services! How can I help you today?",
+    "typeMessage": "Type a message...",
+    "newChat": "Start new chat",
+    "closeChat": "Close chat",
+    "openChat": "Open chat assistant",
+    "preferWhatsapp": "Prefer WhatsApp? Chat with us directly",
+    "defaultReply": "I'd be happy to help! For specific inquiries, please contact us directly via WhatsApp or phone, and our team will assist you right away.",
+    "contactUs": "Contact Us",
+    "questions": {
+      "services": {
+        "question": "What services do you offer?",
+        "answer": "We provide comprehensive technical solutions including AC maintenance, plumbing, electromechanical works, and luxury finishes.",
+        "actionLabel": "View All Services"
+      },
+      "location": {
+        "question": "Where are you located?",
+        "answer": "Our office is located at Office D-02, Almarzouqi Building 13-B, Al Goze First, Dubai, UAE.",
+        "actionLabel": "View on Map"
+      },
+      "quote": {
+        "question": "How can I request a quote?",
+        "answer": "You can easily request a customized quote by reaching out via our direct WhatsApp or through our contact form.",
+        "actionLabel": "Contact Us"
+      },
+      "projects": {
+        "question": "Can I see your past projects?",
+        "answer": "Absolutely! We have a strong track record of successful residential and commercial projects across Dubai.",
+        "actionLabel": "View Portfolio"
+      },
+      "hours": {
+        "question": "What are your working hours?",
+        "answer": "We operate from Monday to Saturday, 8:00 AM to 6:00 PM. We also offer emergency support.",
+        "actionLabel": "Call Now"
+      },
+      "amc": {
+        "question": "Do you offer annual maintenance contracts?",
+        "answer": "Yes, we provide comprehensive annual maintenance contracts (AMC) for residential and commercial properties to keep your facilities in top condition.",
+        "actionLabel": "Contact Us"
+      },
+      "certified": {
+        "question": "Are your technicians certified?",
+        "answer": "Absolutely! Our team consists of highly trained and certified professionals with years of experience across the UAE.",
+        "actionLabel": "Read About Us"
+      }
+    }
+  }
+}

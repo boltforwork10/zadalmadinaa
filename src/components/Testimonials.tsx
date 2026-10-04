@@ -1,13 +1,16 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import { Star, Quote } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import Reveal from './Reveal';
-import { TESTIMONIALS } from '@/data';
 
 import 'swiper/css';
 import 'swiper/css/pagination';
 
 export default function Testimonials() {
+  const { t } = useTranslation();
+  const count = 6;
+
   return (
     <section id="testimonials" className="py-24 md:py-32 bg-burgundy-900 relative overflow-hidden">
       {/* Decorative elements */}
@@ -18,9 +21,9 @@ export default function Testimonials() {
 
       <div className="relative max-w-5xl mx-auto px-6">
         <Reveal className="text-center mb-14">
-          <p className="text-gold-400 text-sm tracking-[0.3em] uppercase mb-3 font-semibold">Testimonials</p>
+          <p className="text-gold-400 text-sm tracking-[0.3em] uppercase mb-3 font-semibold">{t('testimonials.eyebrow')}</p>
           <h2 className="font-heading text-3xl md:text-4xl lg:text-5xl text-white font-extrabold tracking-tight">
-            What Our Clients Say
+            {t('testimonials.title')}
           </h2>
           <div className="w-20 h-1 gradient-gold mx-auto mt-6 rounded-full" />
         </Reveal>
@@ -33,7 +36,7 @@ export default function Testimonials() {
             loop
             className="pb-14"
           >
-            {TESTIMONIALS.map((testimonial, i) => (
+            {Array.from({ length: count }).map((_, i) => (
               <SwiperSlide key={i}>
                 <div className="text-center max-w-3xl mx-auto px-4">
                   <Quote size={48} className="text-gold-500/40 mx-auto mb-6" />
@@ -43,11 +46,11 @@ export default function Testimonials() {
                     ))}
                   </div>
                   <p className="text-white/90 text-lg md:text-xl leading-relaxed font-light mb-8 text-balance">
-                    "{testimonial.quote}"
+                    "{t(`testimonials.items.${i}.quote`)}"
                   </p>
                   <div>
-                    <p className="text-gold-400 font-heading font-bold text-lg">{testimonial.name}</p>
-                    <p className="text-white/50 text-sm mt-1">{testimonial.role}</p>
+                    <p className="text-gold-400 font-heading font-bold text-lg">{t(`testimonials.items.${i}.name`)}</p>
+                    <p className="text-white/50 text-sm mt-1">{t(`testimonials.items.${i}.role`)}</p>
                   </div>
                 </div>
               </SwiperSlide>

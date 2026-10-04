@@ -15,6 +15,7 @@ import {
   CircleCheck as CheckCircle2,
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const iconMap: Record<string, LucideIcon> = {
   Wind,
@@ -46,7 +47,12 @@ type ServiceCardProps = {
 };
 
 export default function ServiceCard({ service }: ServiceCardProps) {
+  const { t } = useTranslation();
   const Icon = iconMap[service.iconName] ?? Wind;
+
+  const title = t(`services.items.${service.id}.title`);
+  const description = t(`services.items.${service.id}.description`);
+  const features: string[] = t(`services.items.${service.id}.features`, { returnObjects: true });
 
   return (
     <div className="group relative bg-white rounded-2xl border border-gray-100 hover:shadow-2xl hover:shadow-burgundy-700/10 hover:-translate-y-1.5 transition-all duration-500 h-full flex flex-col">
@@ -54,7 +60,7 @@ export default function ServiceCard({ service }: ServiceCardProps) {
       <div className="relative rounded-t-2xl overflow-hidden">
         <img
           src={service.imageUrl}
-          alt={service.title}
+          alt={title}
           loading="lazy"
           className="w-full h-56 object-cover bg-gray-200 group-hover:scale-105 transition-transform duration-700"
         />
@@ -68,15 +74,15 @@ export default function ServiceCard({ service }: ServiceCardProps) {
       {/* Body — pt-8 clears the protruding icon */}
       <div className="p-6 pt-8 flex flex-col flex-1">
         <h3 className="font-heading text-lg text-burgundy-800 font-bold mb-2 leading-snug tracking-tight">
-          {service.title}
+          {title}
         </h3>
         <p className="text-gray-500 text-sm leading-relaxed mb-4">
-          {service.description}
+          {description}
         </p>
 
         {/* Feature list */}
         <ul className="space-y-2.5 mt-auto">
-          {service.features.map((feature) => (
+          {features.map((feature) => (
             <li key={feature} className="flex items-start gap-2.5">
               <CheckCircle2 size={16} className="shrink-0 text-gold-600 mt-0.5" />
               <span className="text-sm text-gray-600 leading-snug">{feature}</span>

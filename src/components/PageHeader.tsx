@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ChevronRight, Chrome as Home } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import Reveal from './Reveal';
 
 type PageHeaderProps = {
@@ -10,6 +11,8 @@ type PageHeaderProps = {
 };
 
 export default function PageHeader({ title, subtitle, image, breadcrumb }: PageHeaderProps) {
+  const { t } = useTranslation();
+
   return (
     <section className="relative h-[420px] md:h-[480px] w-full overflow-hidden flex items-end">
       <img
@@ -27,7 +30,7 @@ export default function PageHeader({ title, subtitle, image, breadcrumb }: PageH
           <nav className="flex items-center gap-2 text-sm mb-5">
             <Link to="/" className="flex items-center gap-1.5 text-white/60 hover:text-gold-400 transition-colors">
               <Home size={14} />
-              Home
+              {t('pageHeader.home')}
             </Link>
             <ChevronRight size={14} className="text-gold-500/60" />
             <span className="text-gold-400 font-medium">{breadcrumb}</span>

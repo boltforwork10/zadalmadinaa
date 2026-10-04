@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import WhatsAppIcon from './WhatsAppIcon';
 import { CONTACT } from '@/data';
 
@@ -11,47 +12,24 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
-const slides = [
-  {
-    img: '/images/image copy.png',
-    eyebrow: 'About Zad Almadina',
-    heading: 'Discover Zad Almadina',
-    subheading:
-      'A trusted partner for comprehensive technical services and maintenance in Dubai, delivering quality, reliability, and attention to detail for every project.',
-    buttonText: 'Learn More About Us',
-    buttonTo: '/about',
-  },
-  {
-    img: '/images/image copy 2.png',
-    eyebrow: 'Our Services',
-    heading: 'Expert Technical Solutions',
-    subheading:
-      'From air conditioning and plumbing to electromechanical works and luxury finishes, we provide a full spectrum of services under one roof.',
-    buttonText: 'Explore Our Services',
-    buttonTo: '/services',
-  },
-  {
-    img: '/images/image copy 3.png',
-    eyebrow: 'Our Portfolio',
-    heading: 'Proven Track Record',
-    subheading:
-      'Explore our portfolio of successfully completed projects, showcasing our commitment to excellence across residential and commercial spaces.',
-    buttonText: 'View Our Work',
-    buttonTo: '/projects',
-  },
-  {
-    img: '/images/image copy 4.png',
-    eyebrow: 'Contact Us',
-    heading: "Let's Build Together",
-    subheading:
-      'Ready to start your next project? Get in touch with our expert team today for a customized quote and professional consultation.',
-    buttonText: 'Contact Us Today',
-    buttonTo: '/contact',
-  },
+const SLIDE_CONFIG = [
+  { img: '/images/image copy.png', buttonTo: '/about' },
+  { img: '/images/image copy 2.png', buttonTo: '/services' },
+  { img: '/images/image copy 3.png', buttonTo: '/projects' },
+  { img: '/images/image copy 4.png', buttonTo: '/contact' },
 ];
 
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const { t } = useTranslation();
+
+  const slides = SLIDE_CONFIG.map((cfg, i) => ({
+    ...cfg,
+    eyebrow: t(`hero.slide${i + 1}.eyebrow`),
+    heading: t(`hero.slide${i + 1}.heading`),
+    subheading: t(`hero.slide${i + 1}.subheading`),
+    buttonText: t(`hero.slide${i + 1}.buttonText`),
+  }));
 
   return (
     <section id="home" className="relative h-screen min-h-[680px] w-full overflow-hidden">
@@ -115,7 +93,7 @@ export default function Hero() {
                   className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border-2 border-white/70 text-white font-semibold tracking-wide hover:bg-white hover:text-black transition-all duration-300"
                 >
                   <WhatsAppIcon size={18} />
-                  Contact via WhatsApp
+                  {t('hero.contactWhatsapp')}
                 </a>
               </div>
             </motion.div>

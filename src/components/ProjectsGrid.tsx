@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import Reveal from './Reveal';
 import { PROJECTS, PROJECT_CATEGORIES } from '@/data';
 
 type Project = (typeof PROJECTS)[0];
 
 export default function ProjectsGrid({ showFilter = true }: { showFilter?: boolean }) {
+  const { t } = useTranslation();
   const [selected, setSelected] = useState<Project | null>(null);
   const [filter, setFilter] = useState<string>('All');
 
@@ -28,7 +30,7 @@ export default function ProjectsGrid({ showFilter = true }: { showFilter?: boole
                     : 'bg-white text-gray-600 border border-gray-200 hover:border-gold-400 hover:text-burgundy-700'
                 }`}
               >
-                {cat}
+                {t(`projects.categories.${cat}`)}
               </button>
             ))}
           </Reveal>
@@ -40,36 +42,39 @@ export default function ProjectsGrid({ showFilter = true }: { showFilter?: boole
           layout
         >
           <AnimatePresence>
-            {filtered.map((project, i) => (
-              <motion.div
-                key={project.title}
-                layout
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.9 }}
-                transition={{ duration: 0.4 }}
-              >
-                <Reveal delay={(i % 3) * 0.08}>
-                  <button
-                    onClick={() => setSelected(project)}
-                    className="group relative block w-full overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer mb-6"
-                  >
-                    <img
-                      src={project.img}
-                      alt={project.title}
-                      loading="lazy"
-                      className="w-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      style={{ aspectRatio: i % 3 === 1 ? '4/3' : '1/1' }}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-burgundy-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-400" />
-                    <div className="absolute bottom-0 left-0 right-0 p-5 text-left">
-                      <p className="text-gold-400 text-xs tracking-wider uppercase mb-1">{project.category}</p>
-                      <h3 className="text-white font-heading text-lg font-bold tracking-tight">{project.title}</h3>
-                    </div>
-                  </button>
-                </Reveal>
-              </motion.div>
-            ))}
+            {filtered.map((project, i) => {
+              const projectIndex = PROJECTS.indexOf(project);
+              return (
+                <motion.div
+                  key={project.title}
+                  layout
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.9 }}
+                  transition={{ duration: 0.4 }}
+                >
+                  <Reveal delay={(i % 3) * 0.08}>
+                    <button
+                      onClick={() => setSelected(project)}
+                      className="group relative block w-full overflow-hidden rounded-xl shadow-md hover:shadow-2xl transition-all duration-500 cursor-pointer mb-6"
+                    >
+                      <img
+                        src={project.img}
+                        alt={t(`projects.items.${projectIndex}.title`)}
+                        loading="lazy"
+                        className="w-full object-cover group-hover:scale-110 transition-transform duration-700"
+                        style={{ aspectRatio: i % 3 === 1 ? '4/3' : '1/1' }}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-burgundy-950/80 via-transparent to-transparent opacity-60 group-hover:opacity-90 transition-opacity duration-400" />
+                      <div className="absolute bottom-0 left-0 right-0 p-5 text-left">
+                        <p className="text-gold-400 text-xs tracking-wider uppercase mb-1">{t(`projects.categories.${project.category}`)}</p>
+                        <h3 className="text-white font-heading text-lg font-bold tracking-tight">{t(`projects.items.${projectIndex}.title`)}</h3>
+                      </div>
+                    </button>
+                  </Reveal>
+                </motion.div>
+              );
+            })}
           </AnimatePresence>
         </motion.div>
       </div>
@@ -98,10 +103,10 @@ export default function ProjectsGrid({ showFilter = true }: { showFilter?: boole
               >
                 <X size={20} />
               </button>
-              <img src={selected.img} alt={selected.title} className="w-full max-h-[70vh] object-cover" />
+              <img src={selected.img} alt={t(`projects.items.${PROJECTS.indexOf(selected)}.title`)} className="w-full max-h-[70vh] object-cover" />
               <div className="p-6">
-                <p className="text-gold-600 text-xs tracking-wider uppercase mb-2">{selected.category}</p>
-                <h3 className="font-heading text-2xl text-burgundy-800 font-bold tracking-tight">{selected.title}</h3>
+                <p className="text-gold-600 text-xs tracking-wider uppercase mb-2">{t(`projects.categories.${selected.category}`)}</p>
+                <h3 className="font-heading text-2xl text-burgundy-800 font-bold tracking-tight">{t(`projects.items.${PROJECTS.indexOf(selected)}.title`)}</h3>
               </div>
             </motion.div>
           </motion.div>

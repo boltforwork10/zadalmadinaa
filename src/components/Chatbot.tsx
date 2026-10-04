@@ -1,7 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, Send, Sparkles, RefreshCw } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 import WhatsAppIcon from './WhatsAppIcon';
 import { CONTACT } from '@/data';
 
@@ -24,72 +25,54 @@ type QuickQuestion = {
   action?: ChatAction;
 };
 
-const QUICK_QUESTIONS: QuickQuestion[] = [
-  {
-    id: 'services',
-    question: 'What services do you offer?',
-    answer:
-      'We provide comprehensive technical solutions including AC maintenance, plumbing, electromechanical works, and luxury finishes.',
-    action: { label: 'View All Services', route: '/services' },
-  },
-  {
-    id: 'location',
-    question: 'Where are you located?',
-    answer: 'Our office is located at Office D-02, Almarzouqi Building 13-B, Al Goze First, Dubai, UAE.',
-    action: { label: 'View on Map', route: '/contact' },
-  },
-  {
-    id: 'quote',
-    question: 'How can I request a quote?',
-    answer:
-      'You can easily request a customized quote by reaching out via our direct WhatsApp or through our contact form.',
-    action: { label: 'Contact Us', route: '/contact' },
-  },
-  {
-    id: 'projects',
-    question: 'Can I see your past projects?',
-    answer:
-      'Absolutely! We have a strong track record of successful residential and commercial projects across Dubai.',
-    action: { label: 'View Portfolio', route: '/projects' },
-  },
-  {
-    id: 'hours',
-    question: 'What are your working hours?',
-    answer: 'We operate from Monday to Saturday, 8:00 AM to 6:00 PM. We also offer emergency support.',
-    action: { label: 'Call Now', route: 'tel:+971569121295' },
-  },
-  {
-    id: 'amc',
-    question: 'Do you offer annual maintenance contracts?',
-    answer: 'Yes, we provide comprehensive annual maintenance contracts (AMC) for residential and commercial properties to keep your facilities in top condition.',
-    action: { label: 'Contact Us', route: '/contact' },
-  },
-  {
-    id: 'certified',
-    question: 'Are your technicians certified?',
-    answer: 'Absolutely! Our team consists of highly trained and certified professionals with years of experience across the UAE.',
-    action: { label: 'Read About Us', route: '/about' },
-  },
-];
-
-const GREETING: ChatMessage = {
-  id: 0,
-  sender: 'bot',
-  text: 'Welcome to Zad Almadina Technical Services! How can I help you today?',
+const QUESTION_IDS = ['services', 'location', 'quote', 'projects', 'hours', 'amc', 'certified'] as const;
+const ACTION_ROUTES: Record<string, { route: string }> = {
+  services: { route: '/services' },
+  location: { route: '/contact' },
+  quote: { route: '/contact' },
+  projects: { route: '/projects' },
+  hours: { route: 'tel:+971569121295' },
+  amc: { route: '/contact' },
+  certified: { route: '/about' },
 };
 
 let messageIdCounter = 1;
 const nextId = () => messageIdCounter++;
 
 export default function Chatbot() {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>([GREETING]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [usedQuestions, setUsedQuestions] = useState<Set<string>>(new Set());
   const [isTyping, setIsTyping] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const navigate = useNavigate();
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const greeting: ChatMessage = useMemo(
+    () => ({ id: 0, sender: 'bot', text: t('chatbot.greeting') }),
+    [t]
+  );
+
+  const quickQuestions: QuickQuestion[] = useMemo(
+    () =>
+      QUESTION_IDS.map((id) => ({
+        id,
+        question: t(`chatbot.questions.${id}.question`),
+        answer: t(`chatbot.questions.${id}.answer`),
+        action: {
+          label: t(`chatbot.questions.${id}.actionLabel`),
+          route: ACTION_ROUTES[id].route,
+        },
+      })),
+    [t]
+  );
+
+  useEffect(() => {
+    setMessages([greeting]);
+    setUsedQuestions(new Set());
+  }, [greeting]);
 
   useEffect(() => {
     if (messagesEndRef.current) {
@@ -130,7 +113,7 @@ export default function Chatbot() {
     setMessages((prev) => [...prev, { id: nextId(), sender: 'user', text }]);
     setInputValue('');
 
-    const matched = QUICK_QUESTIONS.find(
+    const matched = quickQuestions.find(
       (q) =>
         text.toLowerCase().includes(q.id) ||
         q.question.toLowerCase().split(' ').some((word) =>
@@ -153,8 +136,8 @@ export default function Chatbot() {
           {
             id: nextId(),
             sender: 'bot',
-            text: "I'd be happy to help! For specific inquiries, please contact us directly via WhatsApp or phone, and our team will assist you right away.",
-            action: { label: 'Contact Us', route: '/contact' },
+            text: t('chatbot.defaultReply'),
+            action: { label: t('chatbot.contactUs'), route: '/contact' },
           },
         ]);
       }
@@ -171,13 +154,13 @@ export default function Chatbot() {
   };
 
   const handleNewChat = () => {
-    setMessages([GREETING]);
+    setMessages([greeting]);
     setUsedQuestions(new Set());
     setInputValue('');
     setIsTyping(false);
   };
 
-  const availableQuestions = QUICK_QUESTIONS.filter(
+  const availableQuestions = quickQuestions.filter(
     (q) => !usedQuestions.has(q.id)
   );
 
@@ -189,7 +172,7 @@ export default function Chatbot() {
         className="fixed bottom-5 right-5 z-50 w-14 h-14 rounded-full gradient-gold text-burgundy-900 flex items-center justify-center shadow-xl shadow-gold-500/40 hover:scale-110 transition-transform duration-300"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
-        aria-label="Open chat assistant"
+        aria-label={t('chatbot.openChat')}
       >
         <AnimatePresence mode="wait">
           {isOpen ? (
@@ -244,25 +227,25 @@ export default function Chatbot() {
               </div>
               <div className="flex-1 min-w-0">
                 <p className="text-white font-heading font-bold text-sm tracking-tight">
-                  Zad Assistant
+                  {t('chatbot.title')}
                 </p>
                 <p className="text-gold-400 text-xs flex items-center gap-1.5">
                   <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-                  Online
+                  {t('chatbot.online')}
                 </p>
               </div>
               <button
                 onClick={handleNewChat}
                 className="text-white/70 hover:text-white transition-colors shrink-0"
-                aria-label="Start new chat"
-                title="New Chat"
+                aria-label={t('chatbot.newChat')}
+                title={t('chatbot.newChat')}
               >
                 <RefreshCw size={18} />
               </button>
               <button
                 onClick={() => setIsOpen(false)}
                 className="text-white/70 hover:text-white transition-colors shrink-0"
-                aria-label="Close chat"
+                aria-label={t('chatbot.closeChat')}
               >
                 <X size={20} />
               </button>
@@ -363,7 +346,7 @@ export default function Chatbot() {
                   type="text"
                   value={inputValue}
                   onChange={(e) => setInputValue(e.target.value)}
-                  placeholder="Type a message..."
+                  placeholder={t('chatbot.typeMessage')}
                   className="flex-1 px-3.5 py-2.5 rounded-full bg-offwhite border border-gray-200 text-sm text-gray-800 focus:outline-none focus:border-gold-500 focus:ring-2 focus:ring-gold-500/20 transition-all duration-200 placeholder:text-gray-400"
                 />
                 <button
@@ -382,7 +365,7 @@ export default function Chatbot() {
                 className="flex items-center justify-center gap-2 py-2 text-xs font-medium text-green-600 hover:bg-green-50 transition-colors border-t border-gray-50"
               >
                 <WhatsAppIcon size={14} />
-                Prefer WhatsApp? Chat with us directly
+                {t('chatbot.preferWhatsapp')}
               </a>
             </div>
           </motion.div>
