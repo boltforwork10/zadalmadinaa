@@ -49,12 +49,12 @@ export default function Testimonials() {
         <Reveal delay={0.1}>
           <Swiper
             key={`testimonials-${lang}`}
+            dir={lang === 'ar' ? 'rtl' : 'ltr'}
             modules={[Autoplay, Pagination]}
             autoplay={{ delay: 6000, disableOnInteraction: false }}
             pagination={{ clickable: true }}
             loop={testimonials.length > 1}
             className="pb-14"
-            rebuildOnUpdate
           >
             {testimonials.map((item, i) => (
               <SwiperSlide key={i}>

@@ -21,7 +21,8 @@ const SLIDE_CONFIG = [
 
 export default function Hero() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isArabic = i18n.language === 'ar';
 
   const slides = SLIDE_CONFIG.map((cfg, i) => ({
     ...cfg,
@@ -34,6 +35,8 @@ export default function Hero() {
   return (
     <section id="home" className="relative h-screen min-h-[680px] w-full overflow-hidden">
       <Swiper
+        key={`hero-${i18n.language}`}
+        dir={isArabic ? 'rtl' : 'ltr'}
         modules={[Autoplay, Pagination, EffectFade]}
         effect="fade"
         autoplay={{ delay: 5500, disableOnInteraction: false }}

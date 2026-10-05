@@ -52,7 +52,10 @@ export default function ServiceCard({ service }: ServiceCardProps) {
 
   const title = t(`services.items.${service.id}.title`);
   const description = t(`services.items.${service.id}.description`);
-  const features: string[] = t(`services.items.${service.id}.features`, { returnObjects: true });
+  const rawFeatures = t(`services.items.${service.id}.features`, { returnObjects: true });
+  const features = Array.isArray(rawFeatures)
+    ? rawFeatures.filter((feature): feature is string => typeof feature === 'string')
+    : [];
 
   return (
     <div className="group relative bg-white rounded-2xl border border-gray-100 hover:shadow-2xl hover:shadow-burgundy-700/10 hover:-translate-y-1.5 transition-all duration-500 h-full flex flex-col">
