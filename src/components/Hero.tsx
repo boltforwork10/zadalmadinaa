@@ -13,9 +13,9 @@ import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 
 const SLIDE_CONFIG = [
-  { img: '/images/image copy.png', buttonTo: '/about' },
-  { img: '/images/image copy 2.png', buttonTo: '/services' },
-  { img: '/images/image copy 3.png', buttonTo: '/projects' },
+  { img: '/images/hero-1.jpg', buttonTo: '/about' },
+  { img: '/images/hero-2.jpg', buttonTo: '/services' },
+  { img: '/images/hero-3.jpg', buttonTo: '/projects' },
   { img: '/images/contact.jpg', buttonTo: '/contact' },
 ];
 
