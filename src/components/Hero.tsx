@@ -15,8 +15,8 @@ import 'swiper/css/effect-fade';
 const SLIDE_CONFIG = [
   { img: '/images/hero-1.jpg', buttonTo: '/about' },
   { img: '/images/hero-2.jpg', buttonTo: '/services' },
-  { img: '/images/hero-3.jpg', buttonTo: '/projects' },
-  { img: '/images/contact.jpg', buttonTo: '/contact' },
+  { img: '/images/hero-4.jpg', buttonTo: '/projects' },
+  { img: '/images/hero-3.jpg', buttonTo: '/contact' },
 ];
 
 export default function Hero() {
